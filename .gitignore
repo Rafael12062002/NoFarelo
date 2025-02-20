@@ -1,0 +1,18 @@
+# Ignorar pastas desnecessárias da Unity
+Library/
+Logs/
+Temp/
+UserSettings/
+Packages/
+Builds/
+
+# Ignorar arquivos desnecessários
+*.tmp
+*.bak
+*.obj
+*.mp4
+*.avi
+*.zip
+*.rar
+.DS_Store
+Thumbs.db
