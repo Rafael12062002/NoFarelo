@@ -65,12 +65,15 @@ public class Inventory : MonoBehaviour
     }
 
     // Método para remover uma quantidade específica de um item
-    public void RemoveItems(string itemName, int quantityToRemove)
+    public void RemoveItems(int itemId, int quantityToRemove)
     {
+        Item item = items.FirstOrDefault(i => i.id == itemId);
         int removedCount = 0;
         for (int i = items.Count - 1; i >= 0; i--) // Percorrer de trás para frente evita problemas de indexação ao remover
         {
-            if (items[i].name == itemName)
+            item.quantity -= quantityToRemove;
+
+            if (item.quantity == 0)
             {
                 items.RemoveAt(i);
                 removedCount++;
@@ -86,37 +89,49 @@ public class Inventory : MonoBehaviour
     // Método para adicionar um item ao inventário
     public void AddItem(Item item)
     {
-        Debug.Log("AddItem Chamado");
-        foreach(var inInventory in items)
+        Debug.Log("AddItem Chamado para " + item.name + " (ID: " + item.id + "), Quantidade original recebida: " + item.quantity);
+
+        Item existItem = items.FirstOrDefault(i => i.id == item.id);
+
+        if (existItem != null) // Se o item já existe, apenas soma a quantidade
         {
-            if(inInventory.name == item.name)
-            {
-                Debug.Log("Comparando: " + item.name + " com " + inInventory.name);
-                inInventory.quantity++;
-                items.Add(item);
-                UpdateInventoryUI();
-                Debug.Log("Id do novo item: " + item.id);
-                Debug.Log("quantidade atual do item: " + inInventory.quantity);
-                return;
-            }
-            Debug.Log("Passou aqui");
-        } 
+            Debug.Log("Item já existe no inventário. ID: " + existItem.id);
+            existItem.quantity += item.quantity; // Apenas soma a quantidade
+        }
+        else
+        {
+            Debug.Log("Item novo adicionado ao inventário.");
+            items.Add(item);
+        }
+
+        Debug.Log("Quantidade atual do item: " + (existItem != null ? existItem.quantity : item.quantity));
+        UpdateInventoryUI();
     }
 
-    public void UpdateInventoryUI()
+    void UpdateInventoryUI()
     {
+        // Supondo que você tenha uma lista de slots da UI, você pode atualizar os slots com os dados mais recentes do inventário
+        // Por exemplo, percorrendo os itens e atualizando suas imagens e quantidades
        
+        for (int i = 0; i < inventorySlot.Length; i++)
+        {
+            if (i < items.Count)
+            {
+                // Atualiza o slot da UI com o item atual
+                //inventorySlot[i].setItem(items[i]);
+            }
+            else
+            {
+                // Limpa o slot se não houver item
+                inventorySlot[i].ClearSlot();
+            }
+        }
     }
 
     public void SetCarriedItem(InventoryItem item)
     {
         if (carriedItem != null)
         {
-            if (item.activeSlot.myTag != SlotTag.None && item.activeSlot.myTag != carriedItem.myItem.itemTag)
-            {
-                return;
-            }
-
             item.activeSlot.setItem(carriedItem);
         }
         carriedItem = item;
@@ -149,6 +164,7 @@ public class Inventory : MonoBehaviour
             Debug.Log("Comparando: " + item.name + " com " + pickItem.name);
             if (item.name == pickItem.name)
             {
+                item.quantity = 1;
                 AddItem(item);
                 return item;
             }
@@ -158,29 +174,39 @@ public class Inventory : MonoBehaviour
 
     public void PickUpItem(Item item)
     {
-        Item _item = item;
-
-        if (_item == null)
+        if (item == null)
         {
-            _item = PickItem(item);
-            Debug.Log("Passou aqui!!!!");
+            Debug.LogError("Item está nulo!");
+            return;
         }
 
-        // Verifica se o item não está na lista e o adiciona
-        if (!items.Contains(_item))
+        Debug.Log("Chamando PickUpItem para: " + item.name);
+
+        // Verifica se o item já existe no inventário
+        Item _item = items.FirstOrDefault(i => i.id == item.id);
+
+        if (_item != null)
         {
+            _item.quantity += item.quantity;
+            Debug.Log($"Item {item.name} já existe. Nova quantidade: {_item.quantity}");
+        }
+        else
+        {
+            _item = Item.CreateItem(item.id, item.quantity, item.sprite, item.prefab);
             items.Add(_item);
-            Debug.Log($"Item {item.name} adicionado à lista do inventário.");
+            Debug.Log($"Item {item.name} adicionado ao inventário.");
         }
 
-        // Verifica os slots do inventário
+        // Adicionar aos slots de inventário
         for (int i = 0; i < inventorySlot.Length; i++)
         {
             if (inventorySlot[i].myItem == null)
             {
                 InventoryItem newItem = Instantiate(itemPrefab, inventorySlot[i].transform);
-                newItem.Initialize(_item, inventorySlot[i]);
-                AddItem(_item);
+                if (newItem != null)
+                {
+                    newItem.Initialize(_item, inventorySlot[i]);
+                }
                 return;
             }
         }

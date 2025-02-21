@@ -47,7 +47,7 @@ public class CraftingSystem : MonoBehaviour
             // Remover os itens necessários do inventário
             foreach (var ingredient in recipe.requiredItens)
             {
-                Inventory.Instance.RemoveItems("Galho", 4);
+                Inventory.Instance.RemoveItems(-780832762, 4);
             }
 
             // Adicionar o item craftado ao inventário

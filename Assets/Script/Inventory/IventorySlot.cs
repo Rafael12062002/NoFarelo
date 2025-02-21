@@ -5,7 +5,7 @@ public class IventorySlot : MonoBehaviour, IPointerClickHandler
 {
     public InventoryItem myItem {  get; set; }
 
-    public SlotTag myTag;
+    //public SlotTag myTag;
     public void OnPointerClick(PointerEventData eventData)
     {
         if(eventData.button == PointerEventData.InputButton.Left)
@@ -14,12 +14,6 @@ public class IventorySlot : MonoBehaviour, IPointerClickHandler
             {
                 return;
             }
-
-            if(myTag != SlotTag.None && Inventory.carriedItem.myItem.itemTag != myTag)
-            {
-                return;
-            }
-
             setItem(Inventory.carriedItem);
         }
     }
@@ -28,7 +22,7 @@ public class IventorySlot : MonoBehaviour, IPointerClickHandler
     {
         if (item == null)
         {
-            Debug.LogError("Trying to set a null item!");
+            Debug.LogError("Item passado para o slot é nulo!");
             return;
         }
 

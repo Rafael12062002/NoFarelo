@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class PickUpItem : MonoBehaviour
 {
@@ -43,19 +44,17 @@ public class PickUpItem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && alreadyPickup)
         {
-            if(item !=  null)
+            if (item != null)
             {
-                Inventory.Instance.PickUpItem(item);
-                
-                alreadyPickup = true;
-                Inventory.Instance.AddItem(item);
                 Debug.Log($"Tentando adicionar item: {item.name}");
-                Destroy(this.gameObject);
+
+                Inventory.Instance.PickUpItem(item);
+                alreadyPickup = false; // Evita execução múltipla no mesmo frame
+                Destroy(gameObject);
             }
             else
             {
                 Debug.LogWarning("Tentativa de pegar um item nulo.");
-                return;
             }
         }
     }

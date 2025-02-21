@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15e299c2686a41343ac29d0a8e3abcf0, type: 3}
-  m_Name: Pants
+  m_Name: Fibra_Vegetal
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: cdb0d83bff01d814b83eb235989b082d, type: 3}
-  itemTag: 4
-  prefab: {fileID: 1488479819642076626, guid: 71f6f9c9058b5094e8bd99ab97822ba2, type: 3}
+  id: -1058132648
+  sprite: {fileID: 21300000, guid: ce4dd4e1517a4c84db3553626246e310, type: 3}
+  itemTag: 0
+  prefab: {fileID: 630795566501757358, guid: 62974e45e5e9d3943b802acf058010c3, type: 3}
+  quantity: 0
+  requiredItens: []

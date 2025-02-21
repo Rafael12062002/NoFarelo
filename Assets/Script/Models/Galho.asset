@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e299c2686a41343ac29d0a8e3abcf0, type: 3}
   m_Name: Galho
   m_EditorClassIdentifier: 
+  id: -780832762
   sprite: {fileID: 21300000, guid: c1820b02cab643341bdc0f4715904df4, type: 3}
   itemTag: 0
   prefab: {fileID: 820186585450273543, guid: 67f0b91e6ab594c4da232688f245a89f, type: 3}
+  quantity: 0
+  requiredItens: []

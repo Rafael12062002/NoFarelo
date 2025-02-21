@@ -10,7 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b85d3104680251844821d3cdbf0a02e9, type: 3}
-  m_Name: Fio
+  m_Name: Barbante
   m_EditorClassIdentifier: 
-  requiredItens: []
-  resultItem: {fileID: 0}
+  requiredItens:
+  - item: {fileID: 11400000, guid: cf30d8114204e404fa6f85dd51679769, type: 2}
+    amount: 4
+    id: 0
+  resultItem: {fileID: 11400000, guid: cf825ea4e34415c4284adee25d082148, type: 2}

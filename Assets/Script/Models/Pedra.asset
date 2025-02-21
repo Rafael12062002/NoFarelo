@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e299c2686a41343ac29d0a8e3abcf0, type: 3}
   m_Name: Pedra
   m_EditorClassIdentifier: 
+  id: -1833459712
   sprite: {fileID: 21300000, guid: 6f5be30fc69d62543b5efb1ffa9d7cd2, type: 3}
   itemTag: 0
   prefab: {fileID: 4927939611929636514, guid: df55555760f727847b53ea7c0a6dc449, type: 3}
+  quantity: 0
+  requiredItens: []
