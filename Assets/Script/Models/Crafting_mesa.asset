@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e299c2686a41343ac29d0a8e3abcf0, type: 3}
   m_Name: Crafting_mesa
   m_EditorClassIdentifier: 
+  id: 769411623
   sprite: {fileID: 21300000, guid: 65529d0d4a6b4ce42b8c9b02a1d73a69, type: 3}
   itemTag: 0
   prefab: {fileID: 8802423205265262945, guid: 5503c04b23019f24d87f08a56e3d588f, type: 3}
+  quantity: 0
+  requiredItens:
+  - {fileID: 11400000, guid: 684c758f24b0dfc4d95450884ede63de, type: 2}
+  - {fileID: 11400000, guid: 684c758f24b0dfc4d95450884ede63de, type: 2}
+  - {fileID: 11400000, guid: 684c758f24b0dfc4d95450884ede63de, type: 2}
+  - {fileID: 11400000, guid: 684c758f24b0dfc4d95450884ede63de, type: 2}

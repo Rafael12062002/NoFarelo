@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15e299c2686a41343ac29d0a8e3abcf0, type: 3}
-  m_Name: Armor
+  m_Script: {fileID: 11500000, guid: b85d3104680251844821d3cdbf0a02e9, type: 3}
+  m_Name: Fio
   m_EditorClassIdentifier: 
-  id: 0
-  sprite: {fileID: 21300000, guid: 541567bdba1ce254c839b780de34e7b5, type: 3}
-  itemTag: 0
-  prefab: {fileID: 4927939611929636514, guid: df55555760f727847b53ea7c0a6dc449, type: 3}
   requiredItens: []
+  resultItem: {fileID: 0}

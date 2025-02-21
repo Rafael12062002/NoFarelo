@@ -19,6 +19,19 @@ public class InventoryItem : MonoBehaviour, IPointerClickHandler
 
     public void Initialize(Item item, IventorySlot parent)
     {
+        if (item == null)
+        {
+            Debug.LogError("Item is null!");
+        }
+
+        if (parent == null)
+        {
+            Debug.LogError("Parent slot is null!");
+        }
+
+        this.myItem = item;
+        this.activeSlot = parent;
+
         activeSlot = parent;
         activeSlot.myItem = this;
         myItem = item;
@@ -26,9 +39,10 @@ public class InventoryItem : MonoBehaviour, IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(eventData.button == PointerEventData.InputButton.Left)
+        InventoryItem inventoryItem = GetComponent<InventoryItem>();
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
-            Inventory.Instance.SetCarriedItem(this);
+            Inventory.Instance.SetCarriedItem(inventoryItem);
         }
         else if(eventData.button == PointerEventData.InputButton.Right)
         {

@@ -26,6 +26,20 @@ public class IventorySlot : MonoBehaviour, IPointerClickHandler
 
     public void setItem(InventoryItem item)
     {
+        if (item == null)
+        {
+            Debug.LogError("Trying to set a null item!");
+            return;
+        }
+
+        this.myItem = item;
+
+        if(Inventory.Instance.items.Contains(item.myItem))
+        {
+            Inventory.Instance.items.Add(item.myItem);
+            Debug.Log($"Item {item.myItem.name} adicionado ao inventário.");
+        }
+
         Inventory.carriedItem = null;
 
         item.activeSlot.myItem = null;
@@ -34,10 +48,12 @@ public class IventorySlot : MonoBehaviour, IPointerClickHandler
         myItem.activeSlot = this;
         myItem.transform.SetParent(transform);
         myItem.canvasGroup.blocksRaycasts = true;
+        //ClearSlot();
+    }
 
-        if(myTag != SlotTag.None)
-        {
-            Inventory.Instance.Equipment(myTag, myItem);
-        }
+    public void ClearSlot()
+    {
+        myItem = null;
+        
     }
 }

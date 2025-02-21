@@ -15,12 +15,12 @@ public class Inventory : MonoBehaviour
     [SerializeField] IventorySlot[] equipamentoSlot;
 
     [SerializeField] Transform draggablesTransform;
-    [SerializeField] InventoryItem itemPrefab;
+    [SerializeField] public InventoryItem itemPrefab;
 
-    [SerializeField] List<Item> items = new List<Item>();
+    [SerializeField] public List<Item> items = new List<Item>();
 
     [SerializeField] Button giveItemBtn;
-
+    IventorySlot limparSlot;
     private void Awake()
     {
         Instance = this;
@@ -35,7 +35,7 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        if(carriedItem ==  null)
+        if (carriedItem == null)
         {
             return;
         }
@@ -43,49 +43,85 @@ public class Inventory : MonoBehaviour
         carriedItem.transform.position = Input.mousePosition;
     }
 
+    public int GetItemCount(Item item)
+    {
+        int count = 0;
+
+        if (item == null)
+        {
+            Debug.LogError("Item é nulo!");
+            return count;
+        }
+
+        foreach (var inventoryItem in items)
+        {
+            if (inventoryItem == item)
+            {
+                count++;
+            }
+        }
+        Debug.Log($"Contando itens: {item.name} - Total no inventário: {count}");
+        return count;
+    }
+
+    // Método para remover uma quantidade específica de um item
+    public void RemoveItems(string itemName, int quantityToRemove)
+    {
+        int removedCount = 0;
+        for (int i = items.Count - 1; i >= 0; i--) // Percorrer de trás para frente evita problemas de indexação ao remover
+        {
+            if (items[i].name == itemName)
+            {
+                items.RemoveAt(i);
+                removedCount++;
+
+                if (removedCount >= quantityToRemove)
+                    break; // Sai do loop após remover a quantidade necessária
+            }
+        }
+        //limparSlot.ClearSlot();
+        Debug.Log("Itens removidos: " + removedCount);
+    }
+
+    // Método para adicionar um item ao inventário
+    public void AddItem(Item item)
+    {
+        Debug.Log("AddItem Chamado");
+        foreach(var inInventory in items)
+        {
+            if(inInventory.name == item.name)
+            {
+                Debug.Log("Comparando: " + item.name + " com " + inInventory.name);
+                inInventory.quantity++;
+                items.Add(item);
+                UpdateInventoryUI();
+                Debug.Log("Id do novo item: " + item.id);
+                Debug.Log("quantidade atual do item: " + inInventory.quantity);
+                return;
+            }
+            Debug.Log("Passou aqui");
+        } 
+    }
+
+    public void UpdateInventoryUI()
+    {
+       
+    }
+
     public void SetCarriedItem(InventoryItem item)
     {
-        if(carriedItem != null)
+        if (carriedItem != null)
         {
-            if(item.activeSlot.myTag != SlotTag.None && item.activeSlot.myTag != carriedItem.myItem.itemTag)
+            if (item.activeSlot.myTag != SlotTag.None && item.activeSlot.myTag != carriedItem.myItem.itemTag)
             {
                 return;
             }
 
             item.activeSlot.setItem(carriedItem);
         }
-
-        if(item.activeSlot.myTag != SlotTag.None)
-        {
-            Equipment(item.activeSlot.myTag, null);
-        }
-
         carriedItem = item;
         carriedItem.canvasGroup.blocksRaycasts = false;
         item.transform.SetParent(draggablesTransform);
-    }
-
-    public void Equipment(SlotTag tag, InventoryItem item = null)
-    {
-        switch(tag)
-        {
-            case SlotTag.Head:
-                if(item == null)
-                {
-                    Debug.Log("Removeu Item da Tag head");
-                }
-                else
-                {
-                    Debug.Log("Equipou na tag head");
-                }
-                break;
-            case SlotTag.Chest:
-                break;
-            case SlotTag.Legs:
-                break;
-            case SlotTag.Feet:
-                break;
-        }
     }
 
     public void PanelCraft()
@@ -102,17 +138,19 @@ public class Inventory : MonoBehaviour
 
     Item PickItem(Item pickItem)
     {
-        //Debug.Log("Verificando pickItem: " + pickItem);
+        Debug.Log("Verificando pickItem: " + pickItem);
         //Debug.Log("Verificando inventorySlots: " + inventorySlot);
-        //Debug.Log("Verificando inventorySlots.Length: " + inventorySlot?.Length);
+        Debug.Log("Verificando inventorySlots.Length: " + inventorySlot?.Length);
         //Debug.Log("Verificando firstEmptySlot: " + firstEmptySlot);
         //Debug.Log("PickItem chamado com: " + pickItem);
-        //Debug.Log("Itens no inventário: " + items.Length);
+        Debug.Log("Itens no inventário: " + items.Count);
         foreach (var item in items)
         {
-            if(item.name == pickItem.name)
+            Debug.Log("Comparando: " + item.name + " com " + pickItem.name);
+            if (item.name == pickItem.name)
             {
-               return item;
+                AddItem(item);
+                return item;
             }
         }
         return null;
@@ -128,14 +166,37 @@ public class Inventory : MonoBehaviour
             Debug.Log("Passou aqui!!!!");
         }
 
+        // Verifica se o item não está na lista e o adiciona
+        if (!items.Contains(_item))
+        {
+            items.Add(_item);
+            Debug.Log($"Item {item.name} adicionado à lista do inventário.");
+        }
+
+        // Verifica os slots do inventário
         for (int i = 0; i < inventorySlot.Length; i++)
         {
             if (inventorySlot[i].myItem == null)
             {
                 InventoryItem newItem = Instantiate(itemPrefab, inventorySlot[i].transform);
                 newItem.Initialize(_item, inventorySlot[i]);
+                AddItem(_item);
                 return;
             }
+        }
+    }
+
+    private void AddItemToInventory(Item item)
+    {
+        // Agora adiciona o item à lista diretamente
+        if (!items.Contains(item))
+        {
+            items.Add(item);
+            Debug.Log($"Item {item.name} adicionado à lista do inventário.");
+        }
+        else
+        {
+            Debug.Log($"Item {item.name} já existe na lista do inventário.");
         }
     }
 
@@ -161,20 +222,13 @@ public class Inventory : MonoBehaviour
 
     public bool hasItem(Item item)
     {
-        return items.Contains(item);
-    }
-
-    public void RemoveItem(Item item)
-    {
-        if (items.Contains(item))
+        foreach (Item invItem in items)
         {
-            items.Remove(item);
+            if (invItem.name == item.name)
+            {
+                return true;
+            }
         }
-    }
-
-    public void AddItem(Item item)
-    {
-        items.Add(item);
-
+        return false;
     }
 }

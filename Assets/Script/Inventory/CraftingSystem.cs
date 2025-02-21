@@ -1,43 +1,70 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class CraftingSystem : MonoBehaviour
 {
     public static CraftingSystem Instance;
+    [SerializeField] private CraftingUI craftingUI;
 
     private void Awake()
     {
-        if(Instance == null) Instance = this;
+        if (Instance == null) Instance = this;
         //DontDestroyOnLoad(gameObject);
     }
 
-    public void ShowCraftiingRecipe(CraftingRecipe recipe, CraftingUI craftingUI)
+    public void ShowCraftingRecipe(CraftingRecipe recipe)
     {
         craftingUI.ShowIngredientes(recipe);
     }
 
-    public bool TryCraft(CraftingRecipe recipe)
+    public bool CanCraft(CraftingRecipe recipe)
     {
-        Inventory inventory = Inventory.Instance;
-
-        foreach(Item item in recipe.requiredItens)
+        foreach (var ingredient in recipe.requiredItens)
         {
-            if(!inventory.hasItem(item))
+            if (ingredient.item == null)
             {
-                Debug.Log("Falta itens para craftar!!");
+                Debug.LogError($"Ingrediente {ingredient} está com item nulo!");
                 return false;
             }
+
+            int count = Inventory.Instance.GetItemCount(ingredient.item);
+            if (count < ingredient.amount)
+            {
+                return false; // Se faltar algum item, não pode craftar
+            }
         }
-
-        foreach(Item item in recipe.requiredItens)
-        {
-            inventory.RemoveItem(item);
-        }
-
-        inventory.AddItem(recipe.resultItem);
-
-        Debug.Log($"Crafting bem sucedido! Criou: {recipe.resultItem.name}");
         return true;
+    }
+
+    // Método para realizar o craft
+    public void Craft(CraftingRecipe recipe)
+    {
+        if (CanCraft(recipe))
+        {
+            Debug.Log("Itens suficientes para craftar.");
+            // Remover os itens necessários do inventário
+            foreach (var ingredient in recipe.requiredItens)
+            {
+                Inventory.Instance.RemoveItems("Galho", 4);
+            }
+
+            // Adicionar o item craftado ao inventário
+            Inventory.Instance.AddItem(recipe.resultItem);
+            AddCraftedItem(recipe.resultItem);
+
+            Debug.Log($"Crafted: {recipe.resultItem.name}");
+        }
+        else
+        {
+            Debug.Log("Não há itens suficientes para craftar.");
+        }
+    }
+
+    void AddCraftedItem(Item craftedItem)
+    {
+        Inventory.Instance.items.Add(craftedItem);
+        Debug.Log("Item craftado adicionado: " + craftedItem.name);
     }
 }

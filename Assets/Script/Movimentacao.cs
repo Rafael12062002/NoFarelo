@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Player))]
 public class Movimentacao : MonoBehaviour
 {
+    public Player player;
     public Animator animator;
     float input_x = 0;
     float input_y = 0;
@@ -23,6 +25,7 @@ public class Movimentacao : MonoBehaviour
     {
         isWalking = false;
         rb = GetComponent<Rigidbody2D>();
+        player = GetComponent<Player>();
     }
 
     void Update()

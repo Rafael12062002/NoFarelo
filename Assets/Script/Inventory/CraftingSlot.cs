@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CraftingSlot : MonoBehaviour
+public class CraftingSlot : MonoBehaviour, IPointerClickHandler
 {
     public Item item;          // O item que será colocado no slot
     public Image itemIcon;     // A referência para o componente Image que vai exibir o sprite
     public Image background;   // A imagem de fundo (branca)
+
+    public CraftingRequirementItens crafitingIntens;
+    public CraftingUI craftingUI;
 
     private void Awake()
     {
@@ -24,16 +28,39 @@ public class CraftingSlot : MonoBehaviour
 
         if (item != null && item.sprite != null)
         {
-            // Aqui você define o sprite da imagem do slot
             itemIcon.sprite = item.sprite;
-            itemIcon.enabled = true;  // Torna a imagem visível
-
-            // Ajusta a posição e o tamanho do item dentro do fundo branco
+            itemIcon.enabled = true;
             FitItemInSlot();
         }
         else
         {
             Debug.LogWarning("Item ou sprite não atribuído!");
+        }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (item == null)
+        {
+            Debug.Log("Item vazio");
+            return;
+        }
+
+        if (crafitingIntens == null)
+        {
+            Debug.Log("craftingItens vazio");
+            return;
+        }
+
+        if(item.requiredItens ==  null)
+        {
+            Debug.Log("requiredItens vazio");
+            return;
+        }
+
+        if(item != null && item.requiredItens.Count > 0)
+        {
+            crafitingIntens.ShowRequirementItens(item.requiredItens);
         }
     }
 

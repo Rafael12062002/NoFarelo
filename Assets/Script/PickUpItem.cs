@@ -46,7 +46,9 @@ public class PickUpItem : MonoBehaviour
             if(item !=  null)
             {
                 Inventory.Instance.PickUpItem(item);
-                //alreadyPickup = true;
+                
+                alreadyPickup = true;
+                Inventory.Instance.AddItem(item);
                 Debug.Log($"Tentando adicionar item: {item.name}");
                 Destroy(this.gameObject);
             }
