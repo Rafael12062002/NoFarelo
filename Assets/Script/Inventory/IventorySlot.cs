@@ -3,14 +3,14 @@ using UnityEngine.EventSystems;
 
 public class IventorySlot : MonoBehaviour, IPointerClickHandler
 {
-    public InventoryItem myItem {  get; set; }
+    public InventoryItem myItem { get; set; }
 
     //public SlotTag myTag;
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(eventData.button == PointerEventData.InputButton.Left)
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
-            if(Inventory.carriedItem == null)
+            if (Inventory.carriedItem == null)
             {
                 return;
             }
@@ -28,15 +28,15 @@ public class IventorySlot : MonoBehaviour, IPointerClickHandler
 
         this.myItem = item;
 
-        if(Inventory.Instance.items.Contains(item.myItem))
-        {
-            Inventory.Instance.items.Add(item.myItem);
-            Debug.Log($"Item {item.myItem.name} adicionado ao inventário.");
-        }
+        Inventory.Instance.items.Add(item.myItem);
+        Debug.Log($"Item {item.myItem.name} adicionado ao inventário.");
 
         Inventory.carriedItem = null;
 
-        item.activeSlot.myItem = null;
+        if (item.activeSlot != null)
+        {
+            item.activeSlot.myItem = null;
+        }
 
         myItem = item;
         myItem.activeSlot = this;
@@ -48,6 +48,6 @@ public class IventorySlot : MonoBehaviour, IPointerClickHandler
     public void ClearSlot()
     {
         myItem = null;
-        
+
     }
 }

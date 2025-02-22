@@ -67,52 +67,77 @@ public class Inventory : MonoBehaviour
     // Método para remover uma quantidade específica de um item
     public void RemoveItems(int itemId, int quantityToRemove)
     {
+        // Encontrar o item pelo ID
         Item item = items.FirstOrDefault(i => i.id == itemId);
-        int removedCount = 0;
-        for (int i = items.Count - 1; i >= 0; i--) // Percorrer de trás para frente evita problemas de indexação ao remover
+
+        if (item == null)
         {
-            item.quantity -= quantityToRemove;
-
-            if (item.quantity == 0)
-            {
-                items.RemoveAt(i);
-                removedCount++;
-
-                if (removedCount >= quantityToRemove)
-                    break; // Sai do loop após remover a quantidade necessária
-            }
+            Debug.LogWarning("Item não encontrado.");
+            return;
         }
-        //limparSlot.ClearSlot();
+
+        int removedCount = 0;
+
+        // Remover a quantidade necessária
+        for (int i = items.Count - 1; i >= 0; i--) // Percorrer de trás para frente
+        {
+            if (items[i].id == itemId)
+            {
+                int availableQuantity = items[i].quantity;
+
+                if (availableQuantity >= quantityToRemove)
+                {
+                    // Se a quantidade disponível no item for maior ou igual à quantidade que precisa ser removida
+                    items[i].quantity -= quantityToRemove;
+                    removedCount += quantityToRemove;
+                    quantityToRemove = 0; // Terminar a remoção
+                                          // Se a quantidade do item ficar 0, remova o item da lista
+                    if (items[i].quantity == 0)
+                    {
+                        InventoryItem inventoryItem = ConvertToInventoryItem(items[i]);
+                        DestroyItem(inventoryItem);
+                        items.RemoveAt(i);
+                    }
+                    break; // Sai do loop
+                }
+                else
+                {
+                    // Se a quantidade disponível no item for menor que a quantidade que precisa ser removida
+                    quantityToRemove -= availableQuantity;
+                    removedCount += availableQuantity;
+                    InventoryItem inventoryItem = ConvertToInventoryItem(items[i]);
+                    DestroyItem(inventoryItem);
+                    items.RemoveAt(i);
+                }
+            }
+
+            if (quantityToRemove == 0) break; // Se não houver mais itens a remover
+        }
+
         Debug.Log("Itens removidos: " + removedCount);
     }
 
-    // Método para adicionar um item ao inventário
-    public void AddItem(Item item)
+    // Método para converter Item em InventoryItem, dependendo de como eles estão estruturados
+    private InventoryItem ConvertToInventoryItem(Item item)
     {
-        Debug.Log("AddItem Chamado para " + item.name + " (ID: " + item.id + "), Quantidade original recebida: " + item.quantity);
+        // Lógica de conversão entre os tipos
+        // Caso você precise converter ou pegar uma instância de InventoryItem associada ao Item
+        return item.inventoryItem; // Ou outro mecanismo de conversão, se necessário
+    }
 
-        Item existItem = items.FirstOrDefault(i => i.id == item.id);
-
-        if (existItem != null) // Se o item já existe, apenas soma a quantidade
+    private void DestroyItem(InventoryItem inventoryItem)
+    {
+        if (inventoryItem != null && inventoryItem.gameObject != null)
         {
-            Debug.Log("Item já existe no inventário. ID: " + existItem.id);
-            existItem.quantity += item.quantity; // Apenas soma a quantidade
+            Destroy(inventoryItem.myItem); // Destrua o objeto visual
         }
-        else
-        {
-            Debug.Log("Item novo adicionado ao inventário.");
-            items.Add(item);
-        }
-
-        Debug.Log("Quantidade atual do item: " + (existItem != null ? existItem.quantity : item.quantity));
-        UpdateInventoryUI();
     }
 
     void UpdateInventoryUI()
     {
         // Supondo que você tenha uma lista de slots da UI, você pode atualizar os slots com os dados mais recentes do inventário
         // Por exemplo, percorrendo os itens e atualizando suas imagens e quantidades
-       
+
         for (int i = 0; i < inventorySlot.Length; i++)
         {
             if (i < items.Count)
@@ -153,19 +178,15 @@ public class Inventory : MonoBehaviour
 
     Item PickItem(Item pickItem)
     {
-        Debug.Log("Verificando pickItem: " + pickItem);
-        //Debug.Log("Verificando inventorySlots: " + inventorySlot);
-        Debug.Log("Verificando inventorySlots.Length: " + inventorySlot?.Length);
-        //Debug.Log("Verificando firstEmptySlot: " + firstEmptySlot);
-        //Debug.Log("PickItem chamado com: " + pickItem);
-        Debug.Log("Itens no inventário: " + items.Count);
+        
         foreach (var item in items)
         {
             Debug.Log("Comparando: " + item.name + " com " + pickItem.name);
             if (item.name == pickItem.name)
             {
                 item.quantity = 1;
-                AddItem(item);
+                //PickUpItem(pickItem);
+                //AddItem(item);
                 return item;
             }
         }
@@ -182,22 +203,10 @@ public class Inventory : MonoBehaviour
 
         Debug.Log("Chamando PickUpItem para: " + item.name);
 
-        // Verifica se o item já existe no inventário
-        Item _item = items.FirstOrDefault(i => i.id == item.id);
+        items.Add(item);
+        Debug.Log($"Item {item.name} adicionado ao inventário.");
 
-        if (_item != null)
-        {
-            _item.quantity += item.quantity;
-            Debug.Log($"Item {item.name} já existe. Nova quantidade: {_item.quantity}");
-        }
-        else
-        {
-            _item = Item.CreateItem(item.id, item.quantity, item.sprite, item.prefab);
-            items.Add(_item);
-            Debug.Log($"Item {item.name} adicionado ao inventário.");
-        }
-
-        // Adicionar aos slots de inventário
+        // Adicionar ao primeiro slot vazio do inventário
         for (int i = 0; i < inventorySlot.Length; i++)
         {
             if (inventorySlot[i].myItem == null)
@@ -205,12 +214,16 @@ public class Inventory : MonoBehaviour
                 InventoryItem newItem = Instantiate(itemPrefab, inventorySlot[i].transform);
                 if (newItem != null)
                 {
-                    newItem.Initialize(_item, inventorySlot[i]);
+                    newItem.Initialize(item, inventorySlot[i]); // Inicializa o slot com o item
                 }
-                return;
+                return; // Sai do método após adicionar o item ao inventário
             }
         }
+
+        // Caso o inventário esteja cheio, você pode adicionar um tratamento aqui
+        Debug.Log("Inventário cheio. Não foi possível adicionar o item.");
     }
+
 
     private void AddItemToInventory(Item item)
     {

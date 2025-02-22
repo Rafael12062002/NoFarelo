@@ -41,20 +41,39 @@ public class CraftingSystem : MonoBehaviour
     // Método para realizar o craft
     public void Craft(CraftingRecipe recipe)
     {
+        Debug.Log("Verificando se é possível craftar...");
+
+        if(CanCraft(recipe))
+        {
+            Debug.Log("pode");
+        }
+        else
+        {
+            Debug.Log("não pode");
+        }
+        Debug.Log("Iniciando Craft");
         if (CanCraft(recipe))
         {
             Debug.Log("Itens suficientes para craftar.");
             // Remover os itens necessários do inventário
             foreach (var ingredient in recipe.requiredItens)
             {
+                Debug.Log($"Removendo {ingredient.amount} de {ingredient.item.name}.");
                 Inventory.Instance.RemoveItems(-780832762, 4);
+                Debug.Log("Passou aqui");
             }
 
-            // Adicionar o item craftado ao inventário
-            Inventory.Instance.AddItem(recipe.resultItem);
-            AddCraftedItem(recipe.resultItem);
-
-            Debug.Log($"Crafted: {recipe.resultItem.name}");
+            if(recipe !=  null && recipe.resultItem != null)
+            {
+                // Adicionar o item craftado ao inventário
+                Inventory.Instance.PickUpItem(recipe.resultItem);
+                Debug.Log($"Crafted: {recipe.resultItem.name}");
+                AddCraftedItem(recipe.resultItem);
+            }
+            else
+            {
+                Debug.LogError("Recipe ou resultItem estão nulos.");
+            }
         }
         else
         {
@@ -64,7 +83,21 @@ public class CraftingSystem : MonoBehaviour
 
     void AddCraftedItem(Item craftedItem)
     {
-        Inventory.Instance.items.Add(craftedItem);
-        Debug.Log("Item craftado adicionado: " + craftedItem.name);
+        if(Inventory.Instance != null)
+        {
+            if(craftedItem != null)
+            {
+                //Inventory.Instance.items.Add(craftedItem);
+                //Debug.Log("Item craftado adicionado: " + craftedItem.name);
+            }  
+            else
+            {
+                Debug.LogWarning("Tentando adicionar um item nulo!");
+            }
+        }
+        else
+        {
+            Debug.LogError("A instância de Inventory não foi inicializada.");
+        }
     }
 }

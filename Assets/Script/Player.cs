@@ -39,7 +39,6 @@ public class Player : MonoBehaviour
         {
             yield return new WaitForSeconds(10f);
             entity.currentHealt -= 5;
-            Debug.Log("Diminuindo");
 
             if(entity.currentHealt < 0)
             {

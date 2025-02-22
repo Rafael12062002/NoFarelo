@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Pedra
   m_EditorClassIdentifier: 
   id: -1833459712
+  name: Pedra
   sprite: {fileID: 21300000, guid: 6f5be30fc69d62543b5efb1ffa9d7cd2, type: 3}
-  itemTag: 0
   prefab: {fileID: 4927939611929636514, guid: df55555760f727847b53ea7c0a6dc449, type: 3}
   quantity: 0
+  inventoryItem: {fileID: 1139915582196946423, guid: 91ad74d89e420234892f97cfc7750c45, type: 3}
   requiredItens: []

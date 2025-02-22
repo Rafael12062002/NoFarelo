@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Fibra_Vegetal
   m_EditorClassIdentifier: 
   id: -1058132648
+  name: Fibra_Vegetal
   sprite: {fileID: 21300000, guid: ce4dd4e1517a4c84db3553626246e310, type: 3}
-  itemTag: 0
   prefab: {fileID: 630795566501757358, guid: 62974e45e5e9d3943b802acf058010c3, type: 3}
   quantity: 0
+  inventoryItem: {fileID: 1139915582196946423, guid: 91ad74d89e420234892f97cfc7750c45, type: 3}
   requiredItens: []

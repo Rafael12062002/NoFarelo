@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Crafting_mesa
   m_EditorClassIdentifier: 
   id: 769411623
+  name: Crafting_mesa
   sprite: {fileID: 21300000, guid: 65529d0d4a6b4ce42b8c9b02a1d73a69, type: 3}
-  itemTag: 1
   prefab: {fileID: 8802423205265262945, guid: 5503c04b23019f24d87f08a56e3d588f, type: 3}
   quantity: 0
+  inventoryItem: {fileID: 1139915582196946423, guid: 91ad74d89e420234892f97cfc7750c45, type: 3}
   requiredItens:
   - {fileID: 11400000, guid: 684c758f24b0dfc4d95450884ede63de, type: 2}
   - {fileID: 11400000, guid: 684c758f24b0dfc4d95450884ede63de, type: 2}

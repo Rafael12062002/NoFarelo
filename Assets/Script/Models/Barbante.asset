@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Barbante
   m_EditorClassIdentifier: 
   id: 1305864640
+  name: Barbante
   sprite: {fileID: 21300000, guid: 41aedfad762676b4ebab5f4e0dc9f80e, type: 3}
-  itemTag: 0
   prefab: {fileID: 1264880556654191096, guid: 2d2f61ef8d140de479bb7a97431b489f, type: 3}
   quantity: 0
+  inventoryItem: {fileID: 1139915582196946423, guid: 91ad74d89e420234892f97cfc7750c45, type: 3}
   requiredItens:
   - {fileID: 11400000, guid: cf30d8114204e404fa6f85dd51679769, type: 2}
   - {fileID: 11400000, guid: cf30d8114204e404fa6f85dd51679769, type: 2}
