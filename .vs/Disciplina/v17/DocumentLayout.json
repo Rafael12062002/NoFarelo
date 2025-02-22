@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\unity\\Projetos\\Disciplina\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\inventory\\craftingsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\inventory\\craftingsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\inventory\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\inventory\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|d:\\unity\\projetos\\disciplina\\assets\\script\\inventory\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\inventory\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|d:\\unity\\projetos\\disciplina\\assets\\script\\inventory\\craftingsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\inventory\\craftingsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -70,7 +70,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
@@ -98,13 +98,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Inventory.cs",
               "DocumentMoniker": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Inventory\\Inventory.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\Inventory\\Inventory.cs",
               "ToolTip": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Inventory\\Inventory.cs",
               "RelativeToolTip": "Assets\\Script\\Inventory\\Inventory.cs",
-              "ViewState": "AgIAALoAAAAAAAAAAAAAAM4AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIEAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T19:27:03.927Z",
               "EditorCaption": ""
@@ -171,13 +171,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CraftingSystem.cs",
               "DocumentMoniker": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Inventory\\CraftingSystem.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\Inventory\\CraftingSystem.cs",
               "ToolTip": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Inventory\\CraftingSystem.cs",
               "RelativeToolTip": "Assets\\Script\\Inventory\\CraftingSystem.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAAAFoAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAADQAAAAAAAAAAIBJwFoAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T18:13:53.496Z",
               "EditorCaption": ""
@@ -204,8 +204,7 @@
               "RelativeToolTip": "Assets\\Script\\Models\\Item.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T04:48:29.903Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-21T04:48:29.903Z"
             },
             {
               "$type": "Document",
@@ -253,8 +252,7 @@
               "RelativeToolTip": "Assets\\Script\\Inventory\\CraftingRequirementItens.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T12:37:21.733Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-20T12:37:21.733Z"
             }
           ]
         }

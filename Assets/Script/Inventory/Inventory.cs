@@ -78,8 +78,8 @@ public class Inventory : MonoBehaviour
 
         int removedCount = 0;
 
-        // Remover a quantidade necessária
-        for (int i = items.Count - 1; i >= 0; i--) // Percorrer de trás para frente
+        // Percorrer a lista de trás para frente para evitar problemas ao remover elementos
+        for (int i = items.Count - 1; i >= 0; i--)
         {
             if (items[i].id == itemId)
             {
@@ -87,26 +87,24 @@ public class Inventory : MonoBehaviour
 
                 if (availableQuantity >= quantityToRemove)
                 {
-                    // Se a quantidade disponível no item for maior ou igual à quantidade que precisa ser removida
+                    // Se a quantidade disponível for maior ou igual à quantidade a ser removida
                     items[i].quantity -= quantityToRemove;
                     removedCount += quantityToRemove;
-                    quantityToRemove = 0; // Terminar a remoção
-                                          // Se a quantidade do item ficar 0, remova o item da lista
+                    quantityToRemove = 0; // Finaliza a remoção
+
                     if (items[i].quantity == 0)
                     {
-                        InventoryItem inventoryItem = ConvertToInventoryItem(items[i]);
-                        DestroyItem(inventoryItem);
+                        RemoveFromInventoryUI(items[i]); // Remover da UI
                         items.RemoveAt(i);
                     }
-                    break; // Sai do loop
+                    break;
                 }
                 else
                 {
-                    // Se a quantidade disponível no item for menor que a quantidade que precisa ser removida
+                    // Se a quantidade disponível for menor que a quantidade a ser removida
                     quantityToRemove -= availableQuantity;
                     removedCount += availableQuantity;
-                    InventoryItem inventoryItem = ConvertToInventoryItem(items[i]);
-                    DestroyItem(inventoryItem);
+                    RemoveFromInventoryUI(items[i]); // Remover da UI
                     items.RemoveAt(i);
                 }
             }
@@ -117,19 +115,17 @@ public class Inventory : MonoBehaviour
         Debug.Log("Itens removidos: " + removedCount);
     }
 
-    // Método para converter Item em InventoryItem, dependendo de como eles estão estruturados
-    private InventoryItem ConvertToInventoryItem(Item item)
+    // Método para remover da interface visual do inventário
+    private void RemoveFromInventoryUI(Item item)
     {
-        // Lógica de conversão entre os tipos
-        // Caso você precise converter ou pegar uma instância de InventoryItem associada ao Item
-        return item.inventoryItem; // Ou outro mecanismo de conversão, se necessário
-    }
-
-    private void DestroyItem(InventoryItem inventoryItem)
-    {
-        if (inventoryItem != null && inventoryItem.gameObject != null)
+        foreach (var slot in inventorySlot)
         {
-            Destroy(inventoryItem.myItem); // Destrua o objeto visual
+            if (slot.myItem != null && slot.myItem.myItem == item)
+            {
+                Destroy(slot.myItem.gameObject); // Remove o objeto visual
+                slot.ClearSlot(); // Limpa o slot
+                break;
+            }
         }
     }
 
