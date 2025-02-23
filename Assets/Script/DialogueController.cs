@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -47,19 +48,31 @@ public class DialogueController : MonoBehaviour
         
         if (botaoClicado == buttonAceitar.gameObject)
         {
-            Debug.Log("buttonAceitar Ativado " + buttonAceitar);
-            painelDialogo.SetActive(false);
-            progress.SetActive(true);
-            velocidade.enabled = true;
+            Item Machado = Inventory.Instance.items.FirstOrDefault(item => item.name == "Machado");
 
-            if (DialogueItem.instance != null)
+            if(Machado != null && Inventory.Instance.hasItem(Machado))
             {
-                // Debug.Log("Item e itemCollecter não é null");
-                DialogueItem.instance.colletarItem();
+                Debug.Log("Tem o Machado" + Machado);
+                Debug.Log("buttonAceitar Ativado " + buttonAceitar);
+                painelDialogo.SetActive(false);
+                progress.SetActive(true);
+                velocidade.enabled = true;
+
+                if (DialogueItem.instance != null)
+                {
+                    // Debug.Log("Item e itemCollecter não é null");
+                    DialogueItem.instance.colletarItem();
+                }
+                else
+                {
+                    Debug.LogWarning("item ou itemCollecter nulo");
+                }
             }
             else
             {
-                Debug.LogWarning("item ou itemCollecter nulo");
+                Debug.LogWarning("Precisa de um Machado");
+                painelDialogo.SetActive(false);
+                velocidade.enabled = true;
             }
         }
         else if (botaoClicado == buttonNegar.gameObject)

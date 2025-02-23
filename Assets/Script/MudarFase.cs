@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MudarFase : MonoBehaviour
 {
-    public Movimentacao player;
+    private Movimentacao player;
     public GameObject IrFase;
     // Start is called before the first frame update
     void Start()
@@ -36,6 +36,14 @@ public class MudarFase : MonoBehaviour
             {
                 SceneManager.LoadScene("B2");
                 Debug.Log("Entrando B2 com a tag de fase: " + IrFase.tag);
+            }
+        }
+        if(collision.CompareTag("Player"))
+        {
+            if(IrFase.CompareTag("C1"))
+            {
+                SceneManager.LoadScene("FaseIntrodutoria");
+                Debug.Log("Entrando C1 com a tag de fase: " + IrFase.tag);
             }
         }
     }

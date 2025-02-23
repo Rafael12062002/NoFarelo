@@ -18,7 +18,15 @@ public class Movimentacao : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if(GameManager.Instance.Player == null)
+        {
+            GameManager.Instance.Player = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if(GameManager.Instance.Player != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Start()

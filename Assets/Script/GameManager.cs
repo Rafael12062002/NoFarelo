@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public Canvas canvas;
     public EventSystem eventSystem;
+    public Movimentacao Player;
     private void Awake()
     {
         if (Instance == null)
@@ -22,6 +23,10 @@ public class GameManager : MonoBehaviour
             if(eventSystem != null)
             {
                 DontDestroyOnLoad(eventSystem);
+            }
+            if (Player != null)
+            {
+                DontDestroyOnLoad(Player);
             }
         }
         else if(Instance != this)

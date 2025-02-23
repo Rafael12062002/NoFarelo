@@ -23,9 +23,16 @@ public class Inventory : MonoBehaviour
     IventorySlot limparSlot;
     private void Awake()
     {
-        Instance = this;
-        //DontDestroyOnLoad(gameObject);
-        giveItemBtn.onClick.AddListener(delegate { PanelCraft(); });
+        if (Instance == null)
+        {
+            Instance = this;
+            //DontDestroyOnLoad(gameObject);
+            giveItemBtn.onClick.AddListener(delegate { PanelCraft(); });
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()
@@ -67,52 +74,25 @@ public class Inventory : MonoBehaviour
     // Método para remover uma quantidade específica de um item
     public void RemoveItems(int itemId, int quantityToRemove)
     {
-        // Encontrar o item pelo ID
-        Item item = items.FirstOrDefault(i => i.id == itemId);
-
-        if (item == null)
-        {
-            Debug.LogWarning("Item não encontrado.");
-            return;
-        }
-
         int removedCount = 0;
 
         // Percorrer a lista de trás para frente para evitar problemas ao remover elementos
-        for (int i = items.Count - 1; i >= 0; i--)
+        for (int i = items.Count - 1; i >= 0 && quantityToRemove > 0; i--)
         {
             if (items[i].id == itemId)
             {
-                int availableQuantity = items[i].quantity;
+                RemoveFromInventoryUI(items[i]); // Remove da UI
+                items.RemoveAt(i); // Remove o objeto da lista
+                removedCount++;
+                quantityToRemove--;
 
-                if (availableQuantity >= quantityToRemove)
-                {
-                    // Se a quantidade disponível for maior ou igual à quantidade a ser removida
-                    items[i].quantity -= quantityToRemove;
-                    removedCount += quantityToRemove;
-                    quantityToRemove = 0; // Finaliza a remoção
-
-                    if (items[i].quantity == 0)
-                    {
-                        RemoveFromInventoryUI(items[i]); // Remover da UI
-                        items.RemoveAt(i);
-                    }
+                // Se já removemos a quantidade necessária, podemos parar
+                if (quantityToRemove == 0)
                     break;
-                }
-                else
-                {
-                    // Se a quantidade disponível for menor que a quantidade a ser removida
-                    quantityToRemove -= availableQuantity;
-                    removedCount += availableQuantity;
-                    RemoveFromInventoryUI(items[i]); // Remover da UI
-                    items.RemoveAt(i);
-                }
             }
-
-            if (quantityToRemove == 0) break; // Se não houver mais itens a remover
         }
 
-        Debug.Log("Itens removidos: " + removedCount);
+        Debug.Log($"Itens removidos: {removedCount}. Ainda faltam remover: {quantityToRemove}");
     }
 
     // Método para remover da interface visual do inventário
@@ -238,6 +218,10 @@ public class Inventory : MonoBehaviour
     public void DropItem(InventoryItem item)
     {
         Debug.Log($"Drop item {item.name}");
+        if(items.Contains(item.myItem))
+        {
+            items.Remove(item.myItem);
+        }
         SpawnObjectNearPlayer(item);
         Destroy(item.gameObject);
     }

@@ -1,3 +1,5 @@
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -8,7 +10,7 @@ public class InventoryItem : MonoBehaviour, IPointerClickHandler
     public CanvasGroup canvasGroup { get; private set; }
     public Item myItem { get;  set; }
     public IventorySlot activeSlot { get;  set; }
-
+    private Player player;
     private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
@@ -44,7 +46,14 @@ public class InventoryItem : MonoBehaviour, IPointerClickHandler
         // Se o clique for esquerdo
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            Inventory.Instance.SetCarriedItem(this);  // Adiciona o item ao que está sendo carregado
+            Item Jambo = Inventory.Instance.items.FirstOrDefault(item => item.inventoryItem.name == "Jambo");
+            if(Jambo != null)
+            {
+                Inventory.Instance.items.Remove(Jambo);
+                //Destroy(Jambo.);
+                player.AddVida(20);
+            }
+            //Inventory.Instance.SetCarriedItem(this);  // Adiciona o item ao que está sendo carregado
         }
         // Se o clique for direito
         else if (eventData.button == PointerEventData.InputButton.Right)

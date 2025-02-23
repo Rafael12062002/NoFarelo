@@ -3,16 +3,56 @@
   "WorkspaceRootPath": "D:\\unity\\Projetos\\Disciplina\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\inventory\\inventoryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\inventory\\inventoryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|d:\\unity\\projetos\\disciplina\\assets\\script\\dialoguecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\dialoguecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\dialogueitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\dialogueitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\dropitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\dropitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\mudarfase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\mudarfase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\inventory\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\inventory\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\movimentacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\movimentacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\inventory\\craftingsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\inventory\\craftingsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\inventory\\craftingui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\inventory\\craftingui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\inventory\\craftingslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\inventory\\craftingslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\inventory\\craftingsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\inventory\\craftingsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\inventory\\craftingrequirementitens.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,32 +67,8 @@
       "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\inventory\\iventoryslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\movimentacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\movimentacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\inventory\\craftingingredient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\inventory\\craftingingredient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|d:\\unity\\projetos\\disciplina\\assets\\script\\inventory\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\inventory\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\inventory\\inventoryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\inventory\\inventoryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\dialogueitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\dialogueitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5182466-CAE4-3EA8-1719-635A2DF1A0E9}|Assembly-CSharp.csproj|D:\\unity\\Projetos\\Disciplina\\assets\\script\\pickupitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -70,23 +86,89 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 13,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 2,
+              "Title": "DialogueController.cs",
+              "DocumentMoniker": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\DialogueController.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\DialogueController.cs",
+              "ToolTip": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\DialogueController.cs",
+              "RelativeToolTip": "Assets\\Script\\DialogueController.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAwCUAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-23T16:48:05.489Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "InventoryItem.cs",
+              "DocumentMoniker": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Inventory\\InventoryItem.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Inventory\\InventoryItem.cs",
+              "ToolTip": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Inventory\\InventoryItem.cs",
+              "RelativeToolTip": "Assets\\Script\\Inventory\\InventoryItem.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAAwDQAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T19:42:51.431Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\GameManager.cs",
+              "ToolTip": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Script\\GameManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-23T16:32:41.45Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MudarFase.cs",
+              "DocumentMoniker": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\MudarFase.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\MudarFase.cs",
+              "ToolTip": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\MudarFase.cs",
+              "RelativeToolTip": "Assets\\Script\\MudarFase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-23T16:20:31.712Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DropItem.cs",
+              "DocumentMoniker": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\DropItem.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\DropItem.cs",
+              "ToolTip": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\DropItem.cs",
+              "RelativeToolTip": "Assets\\Script\\DropItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-23T16:03:38.652Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "DialogueItem.cs",
               "DocumentMoniker": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\DialogueItem.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\DialogueItem.cs",
               "ToolTip": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\DialogueItem.cs",
               "RelativeToolTip": "Assets\\Script\\DialogueItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAlwCEAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T18:59:29.998Z"
+              "WhenOpened": "2025-02-21T18:59:29.998Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "PickUpItem.cs",
               "DocumentMoniker": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\PickUpItem.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\PickUpItem.cs",
@@ -98,20 +180,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "Inventory.cs",
               "DocumentMoniker": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Inventory\\Inventory.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\Inventory\\Inventory.cs",
               "ToolTip": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Inventory\\Inventory.cs",
               "RelativeToolTip": "Assets\\Script\\Inventory\\Inventory.cs",
-              "ViewState": "AgIAAOIAAAAAAAAAAAAAAFoAAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAL4AAAAAAAAAAAAAAN4AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T19:27:03.927Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": "CraftingIngredient.cs",
               "DocumentMoniker": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Inventory\\CraftingIngredient.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\Inventory\\CraftingIngredient.cs",
@@ -119,24 +201,11 @@
               "RelativeToolTip": "Assets\\Script\\Inventory\\CraftingIngredient.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T02:15:28.021Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-21T02:15:28.021Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "InventoryItem.cs",
-              "DocumentMoniker": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Inventory\\InventoryItem.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\Inventory\\InventoryItem.cs",
-              "ToolTip": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Inventory\\InventoryItem.cs",
-              "RelativeToolTip": "Assets\\Script\\Inventory\\InventoryItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T19:42:51.431Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 15,
               "Title": "IventorySlot.cs",
               "DocumentMoniker": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Inventory\\IventorySlot.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\Inventory\\IventorySlot.cs",
@@ -144,12 +213,11 @@
               "RelativeToolTip": "Assets\\Script\\Inventory\\IventorySlot.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T19:39:59.844Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-20T19:39:59.844Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 14,
               "Title": "CraftingRecipe.cs",
               "DocumentMoniker": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Inventory\\CraftingRecipe.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\Inventory\\CraftingRecipe.cs",
@@ -157,12 +225,11 @@
               "RelativeToolTip": "Assets\\Script\\Inventory\\CraftingRecipe.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T18:00:36.932Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-20T18:00:36.932Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 12,
               "Title": "CraftingSlot.cs",
               "DocumentMoniker": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Inventory\\CraftingSlot.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\Inventory\\CraftingSlot.cs",
@@ -170,34 +237,31 @@
               "RelativeToolTip": "Assets\\Script\\Inventory\\CraftingSlot.cs",
               "ViewState": "AgIAAC8AAAAAAAAAAAAAAEgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T01:37:02.758Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-20T01:37:02.758Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "CraftingSystem.cs",
               "DocumentMoniker": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Inventory\\CraftingSystem.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\Inventory\\CraftingSystem.cs",
               "ToolTip": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Inventory\\CraftingSystem.cs",
               "RelativeToolTip": "Assets\\Script\\Inventory\\CraftingSystem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAD0AAAAAAAAAAADwv2gAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T18:13:53.496Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-20T18:13:53.496Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "Movimentacao.cs",
               "DocumentMoniker": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Movimentacao.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\Movimentacao.cs",
               "ToolTip": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Movimentacao.cs",
               "RelativeToolTip": "Assets\\Script\\Movimentacao.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T16:44:34.307Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-21T16:44:34.307Z"
             },
             {
               "$type": "Document",
@@ -207,14 +271,14 @@
               "RelativeDocumentMoniker": "Assets\\Script\\Models\\Item.cs",
               "ToolTip": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Models\\Item.cs",
               "RelativeToolTip": "Assets\\Script\\Models\\Item.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-21T04:48:29.903Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "Entity.cs",
               "DocumentMoniker": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Models\\Entity.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\Models\\Entity.cs",
@@ -226,20 +290,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 1,
               "Title": "Player.cs",
               "DocumentMoniker": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Player.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\Player.cs",
               "ToolTip": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Player.cs",
               "RelativeToolTip": "Assets\\Script\\Player.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAAACgAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAqwBYAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-21T16:47:12.165Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 11,
               "Title": "CraftingUI.cs",
               "DocumentMoniker": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Inventory\\CraftingUI.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\Inventory\\CraftingUI.cs",
@@ -247,12 +311,11 @@
               "RelativeToolTip": "Assets\\Script\\Inventory\\CraftingUI.cs",
               "ViewState": "AgIAAEAAAAAAAAAAAAAAwFsAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T17:53:47.355Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-20T17:53:47.355Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 13,
               "Title": "CraftingRequirementItens.cs",
               "DocumentMoniker": "D:\\unity\\Projetos\\Disciplina\\Assets\\Script\\Inventory\\CraftingRequirementItens.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\Inventory\\CraftingRequirementItens.cs",
@@ -260,8 +323,7 @@
               "RelativeToolTip": "Assets\\Script\\Inventory\\CraftingRequirementItens.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwCMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T12:37:21.733Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-20T12:37:21.733Z"
             }
           ]
         }
