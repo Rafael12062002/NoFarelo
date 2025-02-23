@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class CraftingSlot : MonoBehaviour, IPointerClickHandler
 {
-    public Item item;          // O item que será colocado no slot
+    public static CraftingRecipe craftingRecipe;
+    public CraftingRecipe item;          // O item que será colocado no slot
     public Image itemIcon;     // A referência para o componente Image que vai exibir o sprite
     public Image background;   // A imagem de fundo (branca)
 
@@ -18,17 +19,17 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler
     {
         if (item != null)
         {
-            SetItem(item);  // Configura o item no slot assim que a cena começar
+            SetItem(item.resultItem);  // Configura o item no slot assim que a cena começar
         }
     }
 
     public void SetItem(Item newItem)
     {
-        item = newItem;
+        item.resultItem = newItem;
 
-        if (item != null && item.sprite != null)
+        if (item.resultItem != null && item.resultItem.sprite != null)
         {
-            itemIcon.sprite = item.sprite;
+            itemIcon.sprite = item.resultItem.sprite;
             itemIcon.enabled = true;
             FitItemInSlot();
         }
@@ -40,27 +41,34 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        // Verifica se o item é nulo
         if (item == null)
         {
             Debug.Log("Item vazio");
             return;
         }
 
+        // Verifica se o resultItem de CraftingRecipe é nulo
+        if (item.resultItem == null)
+        {
+            Debug.Log("resultItem vazio");
+            return;
+        }
+
+        // Verifica se o CraftingRequirementItens está atribuído corretamente
         if (crafitingIntens == null)
         {
-            Debug.Log("craftingItens vazio");
+            Debug.Log("CraftingRequirementItens vazio");
             return;
         }
 
-        if(item.requiredItens ==  null)
-        {
-            Debug.Log("requiredItens vazio");
-            return;
-        }
 
-        if(item != null && item.requiredItens.Count > 0)
+        if (item.resultItem != null && item.resultItem.requiredItens.Count > 0)
         {
-            crafitingIntens.ShowRequirementItens(item.requiredItens);
+            craftingRecipe = item;
+            Debug.Log("Apertei no Item: " + item.resultItem + " Itens necessarios para craftar " + item.resultItem.requiredItens.Count);
+            crafitingIntens.ShowRequirementItens(item.resultItem.requiredItens);
+            
         }
     }
 

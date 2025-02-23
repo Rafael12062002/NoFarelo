@@ -6054,7 +6054,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 79.66305, y: -32}
+  m_AnchoredPosition: {x: 136.84697, y: -32}
   m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &727343087
@@ -7180,11 +7180,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5261044911778173348, guid: f8193aac85a0c2142b324e6a6482671a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 47.110016
+      value: 70.186035
       objectReference: {fileID: 0}
     - target: {fileID: 5261044911778173348, guid: f8193aac85a0c2142b324e6a6482671a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -75.31022
+      value: -191.99573
       objectReference: {fileID: 0}
     - target: {fileID: 5261044911778173348, guid: f8193aac85a0c2142b324e6a6482671a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7198,6 +7198,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7497454676207066870, guid: f8193aac85a0c2142b324e6a6482671a, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 13b456b7e0b1d9b4b9004d0f2a5eb5ac, type: 2}
     - target: {fileID: 7497454676207066870, guid: f8193aac85a0c2142b324e6a6482671a, type: 3}
       propertyPath: craftingUI
       value: 
@@ -7837,11 +7841,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5261044911778173348, guid: f8193aac85a0c2142b324e6a6482671a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 47.110016
+      value: 218.18604
       objectReference: {fileID: 0}
     - target: {fileID: 5261044911778173348, guid: f8193aac85a0c2142b324e6a6482671a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -149.31021
+      value: -191.99573
       objectReference: {fileID: 0}
     - target: {fileID: 5261044911778173348, guid: f8193aac85a0c2142b324e6a6482671a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7862,7 +7866,7 @@ PrefabInstance:
     - target: {fileID: 7497454676207066870, guid: f8193aac85a0c2142b324e6a6482671a, type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: 67c3495d6c7b418489fb76bfa3c91a26, type: 2}
+      objectReference: {fileID: 11400000, guid: 2d1a30e330a64b64f86bb376373cf35f, type: 2}
     - target: {fileID: 7497454676207066870, guid: f8193aac85a0c2142b324e6a6482671a, type: 3}
       propertyPath: craftingUI
       value: 
@@ -10563,11 +10567,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5261044911778173348, guid: f8193aac85a0c2142b324e6a6482671a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 121.110016
+      value: 144.18604
       objectReference: {fileID: 0}
     - target: {fileID: 5261044911778173348, guid: f8193aac85a0c2142b324e6a6482671a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -75.31022
+      value: -191.99573
       objectReference: {fileID: 0}
     - target: {fileID: 5261044911778173348, guid: f8193aac85a0c2142b324e6a6482671a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10588,7 +10592,7 @@ PrefabInstance:
     - target: {fileID: 7497454676207066870, guid: f8193aac85a0c2142b324e6a6482671a, type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: cf825ea4e34415c4284adee25d082148, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f06e3c0b2d0a264c81c0dd3416b29dc, type: 2}
     - target: {fileID: 7497454676207066870, guid: f8193aac85a0c2142b324e6a6482671a, type: 3}
       propertyPath: craftingUI
       value: 
@@ -11815,7 +11819,7 @@ MonoBehaviour:
         m_MethodName: CraftItem
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 13b456b7e0b1d9b4b9004d0f2a5eb5ac, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 8f06e3c0b2d0a264c81c0dd3416b29dc, type: 2}
           m_ObjectArgumentAssemblyTypeName: CraftingRecipe, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0

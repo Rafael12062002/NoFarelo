@@ -7,6 +7,7 @@ public class CraftingSystem : MonoBehaviour
 {
     public static CraftingSystem Instance;
     [SerializeField] private CraftingUI craftingUI;
+    
 
     private void Awake()
     {
@@ -59,7 +60,7 @@ public class CraftingSystem : MonoBehaviour
             foreach (var ingredient in recipe.requiredItens)
             {
                 Debug.Log($"Removendo {ingredient.amount} de {ingredient.item.name}.");
-                Inventory.Instance.RemoveItems(-780832762, 4);
+                Inventory.Instance.RemoveItems(ingredient.item.id, ingredient.amount);
                 Debug.Log("Passou aqui");
             }
 

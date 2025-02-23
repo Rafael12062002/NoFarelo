@@ -19,11 +19,7 @@ MonoBehaviour:
   quantity: 0
   inventoryItem: {fileID: 1139915582196946423, guid: 91ad74d89e420234892f97cfc7750c45, type: 3}
   requiredItens:
-  - {fileID: 11400000, guid: f7267608796508e4cbb7d030847bcc66, type: 2}
-  - {fileID: 11400000, guid: f7267608796508e4cbb7d030847bcc66, type: 2}
-  - {fileID: 11400000, guid: 684c758f24b0dfc4d95450884ede63de, type: 2}
-  - {fileID: 11400000, guid: 684c758f24b0dfc4d95450884ede63de, type: 2}
   - {fileID: 11400000, guid: 684c758f24b0dfc4d95450884ede63de, type: 2}
   - {fileID: 11400000, guid: 684c758f24b0dfc4d95450884ede63de, type: 2}
   - {fileID: 11400000, guid: cf825ea4e34415c4284adee25d082148, type: 2}
-  - {fileID: 11400000, guid: cf825ea4e34415c4284adee25d082148, type: 2}
+  - {fileID: 11400000, guid: f7267608796508e4cbb7d030847bcc66, type: 2}

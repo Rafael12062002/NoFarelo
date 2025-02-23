@@ -24,10 +24,17 @@ public class CraftingUI : MonoBehaviour
         // Criar um botão para cada receita
         foreach (var recipe in recipes)
         {
+            
             GameObject button = Instantiate(recipeButtonPrefab, recipeContainer);
             button.GetComponentInChildren<Text>().text = recipe.resultItem.name;
-            button.GetComponent<Button>().onClick.AddListener(() => ShowIngredientes(recipe)); // Exibe os ingredientes da receita
+
+            var currentRecipe = recipe;
+            button.GetComponent<Button>().onClick.AddListener(() =>
+            {
+                ShowIngredientes(currentRecipe); // Exibe os ingredientes da receita
+            });
         }
+        Debug.Log("Mostrando todos os itens" + recipes);
     }
 
     public void ShowIngredientes(CraftingRecipe recipe)
@@ -43,7 +50,7 @@ public class CraftingUI : MonoBehaviour
         {
             GameObject ingredientUI = Instantiate(ingredientButtonPrefab, ingredientsContainer);
             // Se você quiser mostrar um ícone ou outra coisa, aqui seria onde você faz isso
-            //ingredientUI.GetComponentInChildren<Text>().text = $"{item.name} x{item.amount}"; // Exibe o nome e a quantidade do item
+            //ingredientUI.GetComponentInChildren<Text>().text = $"{item.id} x{item.amount}"; // Exibe o nome e a quantidade do item
         }
 
         // Exibir o botão de craft
@@ -76,7 +83,14 @@ public class CraftingUI : MonoBehaviour
 
     public void CraftItem(CraftingRecipe recipe)
     {
-        CraftingSystem.Instance.Craft(recipe); // Chama o método de craft no CraftingSystem
+        if(CraftingSlot.craftingRecipe != null)
+        {
+            CraftingSystem.Instance.Craft(CraftingSlot.craftingRecipe);
+        }
+        else
+        {
+            Debug.Log("Nenhuma receita selecionada");
+        }
     }
 
 }
