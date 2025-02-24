@@ -3,7 +3,6 @@ using System.Linq;
 using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class Inventory : MonoBehaviour
 {
@@ -281,7 +280,7 @@ public class Inventory : MonoBehaviour
 
         Debug.Log($"Tentando consumir o item: {inventoryItem.myItem.name}");
 
-        if (inventoryItem.myItem.name == "Jambo")
+        if (inventoryItem.myItem.name == "Jambo" || inventoryItem.myItem.name == "Ajuru")
         {
             // Remove o item do inventário
             if (Inventory.Instance.items.Contains(inventoryItem.myItem))

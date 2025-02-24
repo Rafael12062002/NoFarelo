@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Mesa
   m_EditorClassIdentifier: 
   requiredItens:
-  - item: {fileID: 11400000, guid: 684c758f24b0dfc4d95450884ede63de, type: 2}
+  - item: {fileID: 11400000, guid: 6a858c7f5b32e10499dd50de6c2147b6, type: 2}
     amount: 4
+    id: 0
   resultItem: {fileID: 11400000, guid: 4453f76152764b842a43c833d33b1324, type: 2}

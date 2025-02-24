@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15e299c2686a41343ac29d0a8e3abcf0, type: 3}
-  m_Name: Machado
+  m_Name: Martelo
   m_EditorClassIdentifier: 
-  id: -633584314
-  name: Machado
-  sprite: {fileID: 21300000, guid: 350d5a41c34666545b5ca847910f5921, type: 3}
-  prefab: {fileID: 5258909833953657287, guid: 59b61fd2ea44cd44fb9892c2ffe5bb11, type: 3}
+  id: -649960276
+  name: Martelo
+  sprite: {fileID: 21300000, guid: 987fee2045d96914d85d9561f02eac07, type: 3}
+  prefab: {fileID: 1927839736534032831, guid: 4cb1b4fd37312fc48b126e56bd5cb6b3, type: 3}
   quantity: 0
   inventoryItem: {fileID: 1139915582196946423, guid: 91ad74d89e420234892f97cfc7750c45, type: 3}
   requiredItens:
   - {fileID: 11400000, guid: cf825ea4e34415c4284adee25d082148, type: 2}
   - {fileID: 11400000, guid: f7267608796508e4cbb7d030847bcc66, type: 2}
-  - {fileID: 11400000, guid: f7267608796508e4cbb7d030847bcc66, type: 2}
+  - {fileID: 11400000, guid: 6a858c7f5b32e10499dd50de6c2147b6, type: 2}
   - {fileID: 11400000, guid: 6a858c7f5b32e10499dd50de6c2147b6, type: 2}

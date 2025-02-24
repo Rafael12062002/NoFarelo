@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [Header("PlayerUI")]
     public Slider healt;
     private bool isDiminutedLife = false;
-
+    public GameObject panelMorte;
 
     private void Awake()
     {
@@ -27,11 +27,13 @@ public class Player : MonoBehaviour
         healt.maxValue = entity.maxHealt;
         healt.value = entity.maxHealt;
         StartDiminuirVida();
+        Morte();
     }
 
     private void Update()
     {
         healt.value = entity.currentHealt;
+        Morte();
     }
 
     public void StartDiminuirVida()
@@ -48,8 +50,8 @@ public class Player : MonoBehaviour
 
         while(entity.currentHealt > 0)
         {
-            yield return new WaitForSeconds(10f);
-            entity.currentHealt -= 5;
+            yield return new WaitForSeconds(4f);
+            entity.currentHealt -= 3;
 
             if(entity.currentHealt < 0)
             {
@@ -87,6 +89,17 @@ public class Player : MonoBehaviour
         if(PlayerPrefs.HasKey("VidaPlayer"))
         {
             entity.currentHealt = PlayerPrefs.GetInt("VidaPlayer");
+        }
+    }
+
+    public void Morte()
+    {
+        if(entity.currentHealt == 0)
+        {
+            Debug.Log("Pode morrer");
+            panelMorte.SetActive(true);
+            Destroy(gameObject);
+            Debug.Log("Morreu");
         }
     }
 }

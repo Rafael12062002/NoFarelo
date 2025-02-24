@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e299c2686a41343ac29d0a8e3abcf0, type: 3}
+  m_Name: Ajuru
+  m_EditorClassIdentifier: 
+  id: -2008556903
+  name: Ajuru
+  sprite: {fileID: 21300000, guid: c7cb87f00b2b9584cb6724a882d7b95b, type: 3}
+  prefab: {fileID: 6539948889437114302, guid: 3a42101b9487cc24aa01927dff9c1934, type: 3}
+  quantity: 0
+  inventoryItem: {fileID: 1139915582196946423, guid: 91ad74d89e420234892f97cfc7750c45, type: 3}
+  requiredItens: []

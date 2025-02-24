@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DialogueController : MonoBehaviour
@@ -45,6 +46,7 @@ public class DialogueController : MonoBehaviour
         if (botaoClicado == buttonAceitar.gameObject)
         {
             Item Machado = Inventory.Instance.items.FirstOrDefault(item => item.name == "Machado");
+            Item Martelo = Inventory.Instance.items.FirstOrDefault(item => item.name == "Martelo");
 
             if(Machado != null && Inventory.Instance.hasItem(Machado))
             {

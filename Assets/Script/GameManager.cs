@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             Debug.Log("GameManager persiste entre as cenas.");
+
             if(canvas != null )
             {
                 DontDestroyOnLoad(canvas);

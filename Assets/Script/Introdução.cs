@@ -17,10 +17,10 @@ public class Introdução : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        textos[0] = "Em busca de beleza uma certa moça morena quis ser loira...";
-        textos[1] = "...ela conseguiu, mas depois quis ser ruiva...";
-        textos[2] = "...então ruiva tornou-se, ela era imparavel, incansavel, ela era simplesmente...";
-        textos[3] = "...Anna Bella!";
+        textos[0] = "O mundo não é mais o mesmo, diversos desastres ambientais estão assolando o planeta devido ao descaso do ser humano, árvores caem, rios secam, o solo se degrada, o calor se torna mais intenso, a flora foi deteriorada, a fauna entra em extinção, e pouco se tem feito para mitigar esses acontecimentos. ";
+        textos[1] = "Para Ramon, dono de uma madeireira localizada na floresta amazônica, era somente mais um dia viajando a trabalho para monitorar de perto a produção.\r\n\r\n";
+        textos[2] = "Entretanto, durante a viagem, uma forte tempestade atinge sua embarcação de forma violenta e o pior acontece...\r\n";
+        textos[3] = "Não restou nada em meio ao caos, mas de alguma forma, Ramon sobreviveu e acorda às margens de um rio, mas o que antes era um mar de madeira, agora restou apenas destroços. A floresta que antes era sua fonte de lucro, agora é o seu único meio de subsistência.";
 
        if(imagens.Length == 0)
         {

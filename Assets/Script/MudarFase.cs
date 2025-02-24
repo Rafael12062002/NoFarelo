@@ -36,20 +36,20 @@ public class MudarFase : MonoBehaviour
         }
         if(collision.CompareTag("Player"))
         {
-            if(IrFase.CompareTag("C2") && vida != null)
-            {
-                vida.SalvarVida();
-                SceneManager.LoadScene("B2");
-                Debug.Log("Entrando B2 com a tag de fase: " + IrFase.tag);
-            }
-        }
-        if(collision.CompareTag("Player"))
-        {
             if(IrFase.CompareTag("C1") && vida != null)
             {
                 vida.SalvarVida();
                 SceneManager.LoadScene("FaseIntrodutoria");
                 Debug.Log("Entrando C1 com a tag de fase: " + IrFase.tag);
+            }
+        }
+        if(collision.CompareTag("Player"))
+        {
+            if(IrFase.CompareTag("A1")  && vida != null)
+            {
+                vida.SalvarVida();
+                SceneManager.LoadScene("A1");
+                Debug.Log("Entrando A1 com a tag de fase: " + IrFase.tag);
             }
         }
     }
