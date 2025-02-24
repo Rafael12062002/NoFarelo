@@ -31,14 +31,14 @@ public class DialogueItem : MonoBehaviour
             instance = this;
             collision.collider.GetComponent<Movimentacao>().enabled = false;
             itemColleter = gameObject;
-            Debug.Log("Colidiu com " + itemColleter.name);
+            //Debug.Log("Colidiu com " + itemColleter.name);
             controller.ProximaFala();
         }
     }
 
     public IEnumerator IniciarColeta()
     {
-        Debug.Log("Metodo chamado");
+        //Debug.Log("Metodo chamado");
 
         controller.progressCollet.ResetProgress();
         yield return new WaitForSeconds(0.1f);
@@ -53,7 +53,7 @@ public class DialogueItem : MonoBehaviour
         if (itemColleter != null && controller != null)
         {
             velocidade.enabled = true;
-            Debug.Log("Coletando... " + itemColleter.name);
+            //Debug.Log("Coletando... " + itemColleter.name);
             controller.progress.SetActive(false);
             GetComponent<DropItem>().Drop();
             Destroy(itemColleter, 0.1f);

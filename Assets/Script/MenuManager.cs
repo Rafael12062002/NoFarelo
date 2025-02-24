@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     public Button buttonStartGame;
+    public Button continueGame;
     public Button buttonQuitGame;
     public float fadeDuration = 3.0f;
     public CanvasGroup canvasGroup;
@@ -15,7 +16,12 @@ public class MenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(!PlayerPrefs.HasKey("objetosColetados"))
+        {
+            continueGame.interactable = false;
+        }
         buttonStartGame.onClick.AddListener(() => StartCoroutine(StartGame()));
+        continueGame.onClick.AddListener(() => StartCoroutine(Continue()));
     }
 
     // Update is called once per frame
@@ -32,8 +38,17 @@ public class MenuManager : MonoBehaviour
         chuva.Stop();
         Debug.Log("Fade completo. Carregando a próxima cena...");
         yield return new WaitForSeconds(1f);
+        //GameManager.Instance.ResetarProgresso();
         SceneManager.LoadScene("Intro");
        
+    }
+
+    public IEnumerator Continue()
+    {
+        continueGame.interactable = false;
+        yield return StartCoroutine(FadeOut());
+        yield return new WaitForSeconds(1f);
+        GameManager.Instance.CarregarProgresso();
     }
 
     public void QuitGame()

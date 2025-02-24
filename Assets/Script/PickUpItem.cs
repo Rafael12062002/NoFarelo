@@ -6,8 +6,6 @@ public class PickUpItem : MonoBehaviour
 {
     public Item item;
     bool alreadyPickup = false;
-
-
     private Rigidbody2D rb;
     private void Awake()
     {
@@ -21,6 +19,14 @@ public class PickUpItem : MonoBehaviour
         rb.isKinematic = false;
         rb.constraints = RigidbodyConstraints2D.None;
         rb.freezeRotation = true;
+    }
+
+    private void Start()
+    {
+        if(GameManager.Instance != null && GameManager.Instance.coletado(gameObject.name))
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collider2D)
@@ -52,6 +58,8 @@ public class PickUpItem : MonoBehaviour
                 if (coletado)
                 {
                     alreadyPickup = false; // Evita execução múltipla no mesmo frame
+                    string nameObject = gameObject.name;
+                    GameManager.Instance.MarcarObjetosColetado(nameObject);
                     Destroy(gameObject);
                 }
             }
