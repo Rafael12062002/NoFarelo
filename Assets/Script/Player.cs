@@ -10,8 +10,19 @@ public class Player : MonoBehaviour
     public Slider healt;
     private bool isDiminutedLife = false;
 
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     void Start()
     {
+        CarregarVida();
+        if (entity == null)
+        {
+            Debug.LogError("Entity não foi atribuída ao Player! Atribua no Inspector.");
+            return;
+        }
         entity.currentHealt = entity.maxHealt;
         healt.maxValue = entity.maxHealt;
         healt.value = entity.maxHealt;
@@ -51,8 +62,31 @@ public class Player : MonoBehaviour
 
     public void AddVida(int quantidade)
     {
+        Debug.Log("AddVida foi chamada!");
+
+        if (entity == null)
+        {
+            Debug.LogError("Entity está nulo no AddVida!");
+            return;
+        }
+
+        Debug.Log($"Antes: {entity.currentHealt}");
         entity.currentHealt += quantidade;
         if (entity.currentHealt > 100) entity.currentHealt = 100;
-        //Debug.Log($"Vida do personagem: {entity.currentHealt}");
+        Debug.Log($"Depois: {entity.currentHealt}");
+    }
+
+    public void SalvarVida()
+    {
+        PlayerPrefs.SetInt("VidaPlayer", entity.currentHealt);
+        PlayerPrefs.Save();
+    }
+
+    public void CarregarVida()
+    {
+        if(PlayerPrefs.HasKey("VidaPlayer"))
+        {
+            entity.currentHealt = PlayerPrefs.GetInt("VidaPlayer");
+        }
     }
 }

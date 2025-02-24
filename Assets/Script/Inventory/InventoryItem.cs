@@ -46,13 +46,7 @@ public class InventoryItem : MonoBehaviour, IPointerClickHandler
         // Se o clique for esquerdo
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            Item Jambo = Inventory.Instance.items.FirstOrDefault(item => item.inventoryItem.name == "Jambo");
-            if(Jambo != null)
-            {
-                Inventory.Instance.items.Remove(Jambo);
-                //Destroy(Jambo.);
-                player.AddVida(20);
-            }
+            Inventory.Instance.ConsumirItem(this);
             //Inventory.Instance.SetCarriedItem(this);  // Adiciona o item ao que está sendo carregado
         }
         // Se o clique for direito

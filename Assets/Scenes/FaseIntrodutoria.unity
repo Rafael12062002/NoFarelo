@@ -961,6 +961,8 @@ MonoBehaviour:
   canvas: {fileID: 1863414374}
   eventSystem: {fileID: 1126377342}
   Player: {fileID: 685322925}
+  vida: {fileID: 685322928}
+  dialogueController: {fileID: 302036196}
 --- !u!4 &265336229
 Transform:
   m_ObjectHideFlags: 0
@@ -5912,7 +5914,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.15669334, y: 0.2643655}
   m_AnchorMax: {x: 0.43138668, y: 0.5523587}
-  m_AnchoredPosition: {x: 0.9751587, y: -1.0059967}
+  m_AnchoredPosition: {x: 0.97514725, y: -1.0059967}
   m_SizeDelta: {x: 2.6823997, y: -2.1426}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &713843941

@@ -8,10 +8,12 @@ public class MudarFase : MonoBehaviour
 {
     private Movimentacao player;
     public GameObject IrFase;
+    Player vida;
     // Start is called before the first frame update
     void Start()
     {
         player = FindAnyObjectByType<Movimentacao>();
+        vida = FindAnyObjectByType<Player>();
     }
 
     // Update is called once per frame
@@ -24,24 +26,28 @@ public class MudarFase : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            if(IrFase.CompareTag("B1"))
+            
+            if(IrFase.CompareTag("B1") && vida != null)
             {
+                vida.SalvarVida();
                 SceneManager.LoadScene("B1");
                 Debug.Log("Entrando B1 com a tag de fase: " + IrFase.tag);
             }
         }
         if(collision.CompareTag("Player"))
         {
-            if(IrFase.CompareTag("C2"))
+            if(IrFase.CompareTag("C2") && vida != null)
             {
+                vida.SalvarVida();
                 SceneManager.LoadScene("B2");
                 Debug.Log("Entrando B2 com a tag de fase: " + IrFase.tag);
             }
         }
         if(collision.CompareTag("Player"))
         {
-            if(IrFase.CompareTag("C1"))
+            if(IrFase.CompareTag("C1") && vida != null)
             {
+                vida.SalvarVida();
                 SceneManager.LoadScene("FaseIntrodutoria");
                 Debug.Log("Entrando C1 com a tag de fase: " + IrFase.tag);
             }

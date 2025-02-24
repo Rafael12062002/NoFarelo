@@ -21,6 +21,7 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] Button giveItemBtn;
     IventorySlot limparSlot;
+    private Player vida;
     private void Awake()
     {
         if (Instance == null)
@@ -38,6 +39,7 @@ public class Inventory : MonoBehaviour
     private void Start()
     {
         player = FindAnyObjectByType<Movimentacao>();
+        vida = FindAnyObjectByType<Player>();
     }
 
     private void Update()
@@ -154,13 +156,13 @@ public class Inventory : MonoBehaviour
 
     Item PickItem(Item pickItem)
     {
-        
+        Item existItem = items.FirstOrDefault(i => i.name == pickItem.name);
         foreach (var item in items)
         {
             Debug.Log("Comparando: " + item.name + " com " + pickItem.name);
-            if (item.name == pickItem.name)
+            if (item.name == pickItem.name && existItem != null)
             {
-                item.quantity = 1;
+                existItem.quantity = item.quantity;
                 //PickUpItem(pickItem);
                 //AddItem(item);
                 return item;
@@ -169,19 +171,42 @@ public class Inventory : MonoBehaviour
         return null;
     }
 
-    public void PickUpItem(Item item)
+    public bool PickUpItem(Item item)
     {
         if (item == null)
         {
             Debug.LogError("Item está nulo!");
-            return;
+            return false;
         }
 
         Debug.Log("Chamando PickUpItem para: " + item.name);
 
-        items.Add(item);
-        Debug.Log($"Item {item.name} adicionado ao inventário.");
+        bool espacoSlot = false;
 
+        for(int i = 0; i < inventorySlot.Length; i++)
+        {
+            if (inventorySlot[i].myItem == null)
+            {
+                espacoSlot = true;
+                break;
+            }
+        }
+
+        if(!espacoSlot)
+        {
+            Debug.Log("Inventario cheio");
+            return false;
+        }
+
+        if(espacoSlot)
+        {
+            items.Add(item);
+            Debug.Log($"Item {item.name} adicionado ao inventário.");
+        }
+        else
+        {
+            return false;
+        }
         // Adicionar ao primeiro slot vazio do inventário
         for (int i = 0; i < inventorySlot.Length; i++)
         {
@@ -192,10 +217,10 @@ public class Inventory : MonoBehaviour
                 {
                     newItem.Initialize(item, inventorySlot[i]); // Inicializa o slot com o item
                 }
-                return; // Sai do método após adicionar o item ao inventário
+                return true; // Sai do método após adicionar o item ao inventário
             }
         }
-
+        return true;
         // Caso o inventário esteja cheio, você pode adicionar um tratamento aqui
         Debug.Log("Inventário cheio. Não foi possível adicionar o item.");
     }
@@ -239,6 +264,49 @@ public class Inventory : MonoBehaviour
         dropItemPrefab.GetComponent<PickUpItem>().item = item.myItem;
     }
 
+    public void ConsumirItem(InventoryItem inventoryItem)
+    {
+        Debug.Log("ConsumirItem foi chamada!");
+        if (inventoryItem == null)
+        {
+            Debug.LogError("InventoryItem é nulo!");
+            return;
+        }
+
+        if (inventoryItem.myItem == null)
+        {
+            Debug.LogError("O item dentro do InventoryItem é nulo!");
+            return;
+        }
+
+        Debug.Log($"Tentando consumir o item: {inventoryItem.myItem.name}");
+
+        if (inventoryItem.myItem.name == "Jambo")
+        {
+            // Remove o item do inventário
+            if (Inventory.Instance.items.Contains(inventoryItem.myItem))
+            {
+                Inventory.Instance.items.Remove(inventoryItem.myItem);
+            }
+            else
+            {
+                Debug.LogWarning("Item não encontrado na lista de inventário.");
+            }
+                vida.AddVida(20);
+
+            // Destroi o objeto visualmente
+            Destroy(inventoryItem.gameObject);
+
+            Debug.Log("Consumiu o item Jambo e ganhou vida!");
+            vida.StartDiminuirVida();
+        }
+        else
+        {
+            Debug.LogWarning("O item clicado não é um Jambo.");
+        }
+    }
+
+
     public bool hasItem(Item item)
     {
         foreach (Item invItem in items)
@@ -249,5 +317,54 @@ public class Inventory : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public Item GetItemByName(string name)
+    {
+        foreach(Item item in items)
+        {
+            if(item.name == name)
+            {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public void SaveInventory()
+    {
+        List<string> itemNames = new List<string>();
+
+        foreach (Item item in items)
+        {
+            itemNames.Add($"{item.name}:{item.quantity}");
+        }
+
+        PlayerPrefs.SetString("PlayerInventory", string.Join(",", itemNames));
+        PlayerPrefs.Save();
+    }
+
+    public void LoadInventory()
+    {
+        string saveInventory = PlayerPrefs.GetString("PlayerInventory", "");
+
+        if(!string.IsNullOrEmpty(saveInventory))
+        {
+            string[] itemNames = saveInventory.Split(',');
+
+            foreach(string itemData in itemNames)
+            {
+                string[] itemParts = itemData.Split(":");
+                string itemName = itemParts[0];
+                int quantity = int.Parse(itemParts[1]);
+                Item item = Inventory.Instance.GetItemByName(itemName);
+
+                if(item != null)
+                {
+                    item.quantity = quantity;
+                    Inventory.Instance.PickItem(item);
+                }
+            }
+        }
     }
 }

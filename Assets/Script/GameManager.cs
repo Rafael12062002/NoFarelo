@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public Canvas canvas;
     public EventSystem eventSystem;
     public Movimentacao Player;
+    public Player vida;
+    public DialogueController dialogueController;
     private void Awake()
     {
         if (Instance == null)
@@ -27,6 +29,14 @@ public class GameManager : MonoBehaviour
             if (Player != null)
             {
                 DontDestroyOnLoad(Player);
+            }
+            if(vida != null)
+            {
+                DontDestroyOnLoad(vida);
+            }
+            if(dialogueController != null)
+            {
+                DontDestroyOnLoad(dialogueController);
             }
         }
         else if(Instance != this)

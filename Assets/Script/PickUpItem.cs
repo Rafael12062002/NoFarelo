@@ -48,9 +48,13 @@ public class PickUpItem : MonoBehaviour
             {
                 Debug.Log($"Tentando adicionar item: {item.name}");
 
-                Inventory.Instance.PickUpItem(item);
-                alreadyPickup = false; // Evita execução múltipla no mesmo frame
-                Destroy(gameObject);
+                bool coletado = Inventory.Instance.PickUpItem(item);
+
+                if (coletado)
+                {
+                    alreadyPickup = false; // Evita execução múltipla no mesmo frame
+                    Destroy(gameObject);
+                }
             }
             else
             {
