@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -10,6 +11,8 @@ public class Player : MonoBehaviour
     public Slider healt;
     private bool isDiminutedLife = false;
     public GameObject panelMorte;
+    public Button backToMenu;
+    public Button novoJogo;
 
     private void Awake()
     {
@@ -27,7 +30,8 @@ public class Player : MonoBehaviour
         healt.maxValue = entity.maxHealt;
         healt.value = entity.maxHealt;
         StartDiminuirVida();
-        Morte();
+        backToMenu.onClick.AddListener(BackToMenu);
+        novoJogo.onClick.AddListener(newGame);
     }
 
     private void Update()
@@ -50,8 +54,8 @@ public class Player : MonoBehaviour
 
         while(entity.currentHealt > 0)
         {
-            yield return new WaitForSeconds(4f);
-            entity.currentHealt -= 3;
+            yield return new WaitForSeconds(1f);
+            entity.currentHealt -= 20;
 
             if(entity.currentHealt < 0)
             {
@@ -96,10 +100,22 @@ public class Player : MonoBehaviour
     {
         if(entity.currentHealt == 0)
         {
-            Debug.Log("Pode morrer");
             panelMorte.SetActive(true);
-            Destroy(gameObject);
-            Debug.Log("Morreu");
+            gameObject.SetActive(false);
         }
+    }
+
+    public void BackToMenu()
+    {
+        Destroy(GameManager.Instance);
+        panelMorte.SetActive(false);
+        SceneManager.LoadScene("Menu");
+    }
+    public void newGame()
+    {
+        Destroy(GameManager.Instance);
+        panelMorte.SetActive(false);
+        GameManager.Instance.ResetarProgresso();
+        SceneManager.LoadScene("Menu");
     }
 }

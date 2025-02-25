@@ -16,12 +16,16 @@ public class MenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(!PlayerPrefs.HasKey("objetosColetados"))
+        if(GameManager.Instance.temJogoSalvo())
+        {
+            continueGame.interactable = true;
+            continueGame.onClick.AddListener(() => StartCoroutine(Continue()));
+        }
+        else
         {
             continueGame.interactable = false;
         }
         buttonStartGame.onClick.AddListener(() => StartCoroutine(StartGame()));
-        continueGame.onClick.AddListener(() => StartCoroutine(Continue()));
     }
 
     // Update is called once per frame
@@ -32,6 +36,7 @@ public class MenuManager : MonoBehaviour
 
     public IEnumerator StartGame()
     {
+        GameManager.Instance.ResetarProgresso();
         buttonStartGame.interactable = false;
         Debug.Log("Iniciando Fade Out...");
         yield return StartCoroutine(FadeOut());
@@ -48,7 +53,7 @@ public class MenuManager : MonoBehaviour
         continueGame.interactable = false;
         yield return StartCoroutine(FadeOut());
         yield return new WaitForSeconds(1f);
-        GameManager.Instance.CarregarProgresso();
+        GameManager.Instance.ContinuarJogo();
     }
 
     public void QuitGame()

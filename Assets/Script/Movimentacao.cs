@@ -34,7 +34,7 @@ public class Movimentacao : MonoBehaviour
         isWalking = false;
         rb = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
-        player.Morte();
+        //player.Morte();
     }
 
     void Update()
