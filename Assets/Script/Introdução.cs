@@ -12,7 +12,7 @@ public class Introdução : MonoBehaviour
     public GameObject texto;
     int cont = 0;
     public float fadeDuration = 1.0f;
-    public float displayTime = 1.5f;
+    public float displayTime = 3f;
 
     // Start is called before the first frame update
     void Start()

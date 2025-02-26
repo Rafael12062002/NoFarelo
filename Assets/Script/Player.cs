@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         CarregarVida();
+        Canvas.ForceUpdateCanvases();
         if (entity == null)
         {
             Debug.LogError("Entity não foi atribuída ao Player! Atribua no Inspector.");
@@ -54,8 +55,8 @@ public class Player : MonoBehaviour
 
         while(entity.currentHealt > 0)
         {
-            yield return new WaitForSeconds(1f);
-            entity.currentHealt -= 20;
+            yield return new WaitForSeconds(10f);
+            entity.currentHealt -= 3;
 
             if(entity.currentHealt < 0)
             {

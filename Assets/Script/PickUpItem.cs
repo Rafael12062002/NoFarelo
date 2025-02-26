@@ -7,6 +7,7 @@ public class PickUpItem : MonoBehaviour
     public Item item;
     bool alreadyPickup = false;
     private Rigidbody2D rb;
+    public AudioSource somColetado;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,8 +24,12 @@ public class PickUpItem : MonoBehaviour
 
     private void Start()
     {
-        if(GameManager.Instance != null && GameManager.Instance.coletado(gameObject.name))
+        somColetado = GetComponent<AudioSource>();
+        string nameObject = gameObject.name;
+
+        if(GameManager.Instance != null && GameManager.Instance.coletado(transform.position))
         {
+            Debug.Log($"Item {nameObject} já foi coletado. Removendo da cena.");
             Destroy(gameObject);
         }
     }
@@ -57,10 +62,11 @@ public class PickUpItem : MonoBehaviour
 
                 if (coletado)
                 {
+                    somColetado.Play();
                     alreadyPickup = false; // Evita execução múltipla no mesmo frame
-                    string nameObject = gameObject.name;
-                    GameManager.Instance.MarcarObjetosColetado(nameObject);
-                    Destroy(gameObject);
+                    Vector2 posicao = gameObject.transform.position;
+                    GameManager.Instance.MarcarObjetosColetado(posicao);
+                    Destroy(gameObject, 0.1f);
                 }
             }
             else

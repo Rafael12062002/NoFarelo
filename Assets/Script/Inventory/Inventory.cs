@@ -220,8 +220,6 @@ public class Inventory : MonoBehaviour
             }
         }
         return true;
-        // Caso o inventário esteja cheio, você pode adicionar um tratamento aqui
-        Debug.Log("Inventário cheio. Não foi possível adicionar o item.");
     }
 
 
@@ -280,7 +278,7 @@ public class Inventory : MonoBehaviour
 
         Debug.Log($"Tentando consumir o item: {inventoryItem.myItem.name}");
 
-        if (inventoryItem.myItem.name == "Jambo" || inventoryItem.myItem.name == "Ajuru")
+        if (inventoryItem.myItem.name == "Jambo" || inventoryItem.myItem.name == "Ajuru" || inventoryItem.myItem.name == "Cupu")
         {
             // Remove o item do inventário
             if (Inventory.Instance.items.Contains(inventoryItem.myItem))
@@ -316,6 +314,11 @@ public class Inventory : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public bool HasItemInventory(string name)
+    {
+        return items.Exists(item => item.name == name);
     }
 
     public Item GetItemByName(string name)

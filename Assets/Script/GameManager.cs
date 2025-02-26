@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     private HashSet<string> objetosColetados = new HashSet<string>();
+    private HashSet<string> objetosDestruidos = new HashSet<string>();
     public Canvas canvas;
     public EventSystem eventSystem;
     public Movimentacao Player;
@@ -26,11 +27,11 @@ public class GameManager : MonoBehaviour
             SceneManager.sceneLoaded += OnSceneLoaded;
             CarregarProgresso();
 
-            if(canvas != null )
+            if (canvas != null)
             {
                 DontDestroyOnLoad(canvas);
             }
-            if(eventSystem != null)
+            if (eventSystem != null)
             {
                 DontDestroyOnLoad(eventSystem);
             }
@@ -38,16 +39,16 @@ public class GameManager : MonoBehaviour
             {
                 DontDestroyOnLoad(Player);
             }
-            if(vida != null)
+            if (vida != null)
             {
                 DontDestroyOnLoad(vida);
             }
-            if(dialogueController != null)
+            if (dialogueController != null)
             {
                 DontDestroyOnLoad(dialogueController);
             }
         }
-        else if(Instance != this)
+        else if (Instance != this)
         {
             Debug.Log("Outro GameManager foi destruído.");
             Destroy(gameObject);
@@ -73,7 +74,7 @@ public class GameManager : MonoBehaviour
 
     public void ContinuarJogo()
     {
-        if(PlayerPrefs.HasKey("UltimaCena"))
+        if (PlayerPrefs.HasKey("UltimaCena"))
         {
             string cena = PlayerPrefs.GetString("UltimaCena");
             SceneManager.LoadScene(cena);
@@ -92,48 +93,55 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if(Player ==  null)
+        if(scene.name == "Menu" || scene.name == "B2")
+        {
+            Destroy(Player.gameObject);
+            Destroy(vida.gameObject);
+            Destroy(dialogueController.gameObject);
+            Destroy(canvas.gameObject);
+        }
+        if (Player == null)
         {
             Player = FindObjectOfType<Movimentacao>();
         }
-        if(vida == null)
+        if (vida == null)
         {
             vida = FindObjectOfType<Player>();
         }
-        if(canvas == null && scene.name == "FaseIntrodutoria")
+        if (canvas == null && scene.name == "FaseIntrodutoria")
         {
             canvas = FindObjectOfType<Canvas>();
         }
-        if(eventSystem == null && scene.name == "FaseIntrodutoria")
+        if (eventSystem == null)
         {
             eventSystem = FindObjectOfType<EventSystem>();
         }
-        if(dialogueController == null)
+        if (dialogueController == null)
         {
             dialogueController = FindObjectOfType<DialogueController>();
         }
 
-        if(Player != null)
+        if (Player != null)
         {
             DontDestroyOnLoad(Player);
         }
-        if(vida != null)
+        if (vida != null)
         {
             DontDestroyOnLoad(vida);
         }
-        if(canvas != null)
+        if (canvas != null)
         {
             DontDestroyOnLoad(canvas);
         }
-        if(eventSystem != null)
+        if (eventSystem != null)
         {
             DontDestroyOnLoad(eventSystem);
         }
-        if(dialogueController != null)
+        if (dialogueController != null)
         {
             DontDestroyOnLoad(dialogueController);
         }
-        if(botãoContinue != null)
+        if (botãoContinue != null)
         {
             DontDestroyOnLoad(botãoContinue);
         }
@@ -142,15 +150,20 @@ public class GameManager : MonoBehaviour
         CarregarProgresso();
     }
 
-    public void MarcarObjetosColetado(string nome)
+    public void MarcarObjetosColetado(Vector2 posicao)
     {
-        objetosColetados.Add(nome);
-        SalvarProgresso();
+        string chave = $"item_{posicao.x}_{posicao.y}";
+        if(!objetosColetados.Contains(chave))
+        {
+            objetosColetados.Add(chave);
+            SalvarProgresso();
+        }
     }
 
-    public bool coletado(string nome)
+    public bool coletado(Vector2 posicao)
     {
-        return objetosColetados.Contains(nome);
+        string chave = $"item_{posicao.x}_{posicao.y}";
+        return objetosColetados.Contains(chave);
     }
 
     public void SalvarProgresso()
@@ -165,10 +178,13 @@ public class GameManager : MonoBehaviour
         if (jogoCarregado) return;
 
         string dados = PlayerPrefs.GetString("objetosColetados", "");
-        if(!string.IsNullOrEmpty(dados))
+        if (!string.IsNullOrEmpty(dados))
         {
-            objetosColetados = new HashSet<string>(dados.Split(','));
-            jogoCarregado = true;
+            string[] itensArray = dados.Split(',');
+            foreach(string itens in itensArray)
+            {
+                objetosColetados.Add(itens);
+            }
         }
     }
 
@@ -176,5 +192,20 @@ public class GameManager : MonoBehaviour
     {
         objetosColetados.Clear();
         PlayerPrefs.DeleteKey("objetosColetados");
+    }
+
+    public void marcarObjetosDestruidos(Vector2 posicao)
+    {
+        string chave = $"item_{posicao.x}_{posicao.y}";
+        if(!objetosDestruidos.Contains(chave))
+        {
+            objetosDestruidos.Add(chave);
+        }
+    }
+
+    public bool foiDestruido(Vector2 posicao)
+    {
+        string chave = $"item_{posicao.x}_{posicao.y}";
+        return objetosDestruidos.Contains(chave);
     }
 }

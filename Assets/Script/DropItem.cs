@@ -43,7 +43,7 @@ public class DropItem : MonoBehaviour
                             Vector2 direction = new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(0.5f, 1f));
                             
                         }
-                        Debug.Log($"Instanciado: {selectedItem.prefab.name}");
+                        Debug.Log($"Instanciado: {selectedItem.prefab.name} em {transform.position}");
                     }
                     else
                     {

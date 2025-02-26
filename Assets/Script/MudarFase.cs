@@ -7,50 +7,59 @@ using UnityEngine.SceneManagement;
 public class MudarFase : MonoBehaviour
 {
     private Movimentacao player;
-    public GameObject IrFase;
     Player vida;
-    // Start is called before the first frame update
+    public GameObject IrFase;
+ 
     void Start()
     {
+        IrFase.SetActive(false);
+        IrFase.SetActive(true);
         player = FindAnyObjectByType<Movimentacao>();
         vida = FindAnyObjectByType<Player>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        StartCoroutine(FecharJogo());
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
+        if (!collision.CompareTag("Player") || vida == null || IrFase == null) return;
+
+        string nomeCena = "";
+
+        switch(IrFase.tag)
         {
-            
-            if(IrFase.CompareTag("B1") && vida != null)
-            {
-                vida.SalvarVida();
-                SceneManager.LoadScene("B1");
-                Debug.Log("Entrando B1 com a tag de fase: " + IrFase.tag);
-            }
+            case "B1":
+                nomeCena = "B1";
+                break;
+            case "C1":
+                nomeCena = "FaseIntrodutoria";
+                break;
+            case "A1":
+                nomeCena = "A1";
+                break;
+            case "B2":
+                nomeCena = "B2";
+                break;
+            default:
+                Debug.LogWarning("Tag de fase não reconhecida: " + IrFase.tag);
+                return;
         }
-        if(collision.CompareTag("Player"))
+
+        vida.SalvarVida();
+        StartCoroutine(TrocarCena(nomeCena));
+    }
+
+    private IEnumerator TrocarCena(string cena)
+    {
+        yield return new WaitForSeconds(0.1f);
+        SceneManager.LoadScene(cena);
+    }
+
+    public IEnumerator FecharJogo()
+    {
+        if(IrFase.name == "B2")
         {
-            if(IrFase.CompareTag("C1") && vida != null)
-            {
-                vida.SalvarVida();
-                SceneManager.LoadScene("FaseIntrodutoria");
-                Debug.Log("Entrando C1 com a tag de fase: " + IrFase.tag);
-            }
-        }
-        if(collision.CompareTag("Player"))
-        {
-            if(IrFase.CompareTag("A1")  && vida != null)
-            {
-                vida.SalvarVida();
-                SceneManager.LoadScene("A1");
-                Debug.Log("Entrando A1 com a tag de fase: " + IrFase.tag);
-            }
+            yield return new WaitForSeconds(5);
+            Application.Quit();
         }
     }
 }

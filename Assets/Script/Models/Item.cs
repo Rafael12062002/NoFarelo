@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class Item : ScriptableObject
 {
     public int id;
-    public string name;
     public Sprite sprite;
     //public SlotTag itemTag;
     public GameObject prefab;

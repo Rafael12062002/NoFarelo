@@ -32,7 +32,7 @@ public class DialogueController : MonoBehaviour
 
     public void ProximaFala()
     {
-        painelDialogo.SetActive(true);
+        painelDialogo.SetActive(true); 
     }
 
     public void buttonPressed()
@@ -45,32 +45,18 @@ public class DialogueController : MonoBehaviour
         
         if (botaoClicado == buttonAceitar.gameObject)
         {
-            Item Machado = Inventory.Instance.items.FirstOrDefault(item => item.name == "Machado");
-            Item Martelo = Inventory.Instance.items.FirstOrDefault(item => item.name == "Martelo");
+            Debug.Log("buttonAceitar Ativado " + buttonAceitar);
+            painelDialogo.SetActive(false);
+            progress.SetActive(true);
+            velocidade.enabled = true;
 
-            if(Machado != null && Inventory.Instance.hasItem(Machado))
+            if (DialogueItem.instance != null)
             {
-                Debug.Log("Tem o Machado" + Machado);
-                Debug.Log("buttonAceitar Ativado " + buttonAceitar);
-                painelDialogo.SetActive(false);
-                progress.SetActive(true);
-                velocidade.enabled = true;
-
-                if (DialogueItem.instance != null)
-                {
-                    // Debug.Log("Item e itemCollecter não é null");
-                    DialogueItem.instance.colletarItem();
-                }
-                else
-                {
-                    Debug.LogWarning("item ou itemCollecter nulo");
-                }
+                DialogueItem.instance.colletarItem();
             }
             else
             {
-                Debug.LogWarning("Precisa de um Machado");
-                painelDialogo.SetActive(false);
-                velocidade.enabled = true;
+                Debug.LogWarning("item ou itemCollecter nulo");
             }
         }
         else if (botaoClicado == buttonNegar.gameObject)
