@@ -38,10 +38,10 @@ public class MenuManager : MonoBehaviour
     {
         GameManager.Instance.ResetarProgresso();
         buttonStartGame.interactable = false;
-        Debug.Log("Iniciando Fade Out...");
+        //Debug.Log("Iniciando Fade Out...");
         yield return StartCoroutine(FadeOut());
         chuva.Stop();
-        Debug.Log("Fade completo. Carregando a próxima cena...");
+        //Debug.Log("Fade completo. Carregando a próxima cena...");
         yield return new WaitForSeconds(1f);
         //GameManager.Instance.ResetarProgresso();
         SceneManager.LoadScene("Intro");
@@ -68,7 +68,7 @@ public class MenuManager : MonoBehaviour
         {
             t += Time.deltaTime;
             canvasGroup.alpha = Mathf.Lerp(1, 0, t / fadeDuration);
-            Debug.Log($"Alpha: {canvasGroup.alpha}");
+            //Debug.Log($"Alpha: {canvasGroup.alpha}");
             yield return null;
         }
         canvasGroup.alpha = 0;

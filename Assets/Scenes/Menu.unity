@@ -1120,10 +1120,10 @@ RectTransform:
   m_Father: {fileID: 9121050}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.29000002, y: 0.16788891}
-  m_AnchorMax: {x: 0.7025764, y: 0.33048144}
-  m_AnchoredPosition: {x: -1.197998, y: 0.5}
-  m_SizeDelta: {x: -0.13000107, y: -5.529999}
+  m_AnchorMin: {x: 0.29000002, y: 0.26660144}
+  m_AnchorMax: {x: 0.69411975, y: 0.42161602}
+  m_AnchoredPosition: {x: 2.802002, y: 1.5}
+  m_SizeDelta: {x: 7.869999, y: -2.5299988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &610386446
 MonoBehaviour:
@@ -1503,8 +1503,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Iniciar
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 41591034c5f61924dac916f244813add, type: 2}
-  m_sharedMaterial: {fileID: 6214279038302763809, guid: 41591034c5f61924dac916f244813add, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1528,8 +1528,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 83
-  m_fontSizeBase: 83
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1916,8 +1916,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sair
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 41591034c5f61924dac916f244813add, type: 2}
-  m_sharedMaterial: {fileID: 6214279038302763809, guid: 41591034c5f61924dac916f244813add, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1941,8 +1941,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 83
-  m_fontSizeBase: 83
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6863,8 +6863,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Vers\xE3o 1.0"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 41591034c5f61924dac916f244813add, type: 2}
-  m_sharedMaterial: {fileID: 6214279038302763809, guid: 41591034c5f61924dac916f244813add, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6888,8 +6888,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

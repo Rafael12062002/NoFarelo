@@ -17,7 +17,17 @@ public class DialogueController : MonoBehaviour
     public GameObject progress;
     public ProgressCollet progressCollet;
 
-    // Start is called before the first frame update
+    void Awake()
+    {
+        if(GameManager.Instance.dialogueController == null)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+        else if(GameManager.Instance.dialogueController != null)
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         velocidade = FindObjectOfType<Movimentacao>();

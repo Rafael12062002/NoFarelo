@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public Player vida;
     public DialogueController dialogueController;
     private bool jogoCarregado = false;
-    public Button botãoContinue;
+    //public Button botãoContinue;
     private string ultimaCenaSalva = "";
     private void Awake()
     {
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
             if (canvas != null)
             {
-                DontDestroyOnLoad(canvas);
+                DontDestroyOnLoad(canvas.gameObject);
             }
             if (eventSystem != null)
             {
@@ -52,6 +52,14 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Outro GameManager foi destruído.");
             Destroy(gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        if(canvas.gameObject.scene.name != "DontDestroyOnLoad")
+        {
+            Destroy(canvas.gameObject);
         }
     }
 
@@ -91,65 +99,73 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Intro");
     }
 
+    private void LogCanvasNaCena()
+    {
+        Canvas[] allCanvases = FindObjectsOfType<Canvas>();
+        Debug.Log($"Total de Canvases encontrados na cena: {allCanvases.Length}");
+        foreach (Canvas c in allCanvases)
+        {
+            Debug.Log($"Canvas encontrado: {c.gameObject.name}");
+        }
+    }
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if(scene.name == "Menu" || scene.name == "B2")
+        Debug.Log($"Cena carregada: {scene.name}");
+
+        if (scene.name == "Menu" || scene.name == "B2")
         {
-            Destroy(Player.gameObject);
-            Destroy(vida.gameObject);
-            Destroy(dialogueController.gameObject);
-            Destroy(canvas.gameObject);
+            Destroy(Player?.gameObject);
+            Destroy(vida?.gameObject);
+            Destroy(dialogueController?.gameObject);
+            Destroy(canvas?.gameObject);
         }
-        if (Player == null)
-        {
-            Player = FindObjectOfType<Movimentacao>();
-        }
-        if (vida == null)
-        {
-            vida = FindObjectOfType<Player>();
-        }
-        if (canvas == null && scene.name == "FaseIntrodutoria")
+
+        if(canvas ==  null && scene.name == "FaseIntrodutoria")
         {
             canvas = FindObjectOfType<Canvas>();
+            if (canvas != null) DontDestroyOnLoad(canvas);
         }
+
         if (eventSystem == null)
         {
             eventSystem = FindObjectOfType<EventSystem>();
+            if (eventSystem != null) DontDestroyOnLoad(eventSystem);
         }
+
         if (dialogueController == null)
         {
             dialogueController = FindObjectOfType<DialogueController>();
+            if (dialogueController != null) DontDestroyOnLoad(dialogueController);
         }
 
-        if (Player != null)
+        if (Player == null)
         {
-            DontDestroyOnLoad(Player);
-        }
-        if (vida != null)
-        {
-            DontDestroyOnLoad(vida);
-        }
-        if (canvas != null)
-        {
-            DontDestroyOnLoad(canvas);
-        }
-        if (eventSystem != null)
-        {
-            DontDestroyOnLoad(eventSystem);
-        }
-        if (dialogueController != null)
-        {
-            DontDestroyOnLoad(dialogueController);
-        }
-        if (botãoContinue != null)
-        {
-            DontDestroyOnLoad(botãoContinue);
+            Player = FindObjectOfType<Movimentacao>();
+            if (Player != null) DontDestroyOnLoad(Player);
         }
 
-        salvarUltimaCena(scene.name);
-        CarregarProgresso();
+        if (vida == null)
+        {
+            vida = FindObjectOfType<Player>();
+            if (vida != null) DontDestroyOnLoad(vida);
+        }
+
+        //salvarUltimaCena(scene.name);
+        //CarregarProgresso();
     }
 
+
+    public void RemoverCanvas()
+    {
+        Canvas canvasExist = FindObjectOfType<Canvas>();
+
+        if(canvasExist != null && canvasExist.gameObject.scene.name != "DontDestroyOnLoad")
+        {
+            Destroy(canvasExist);
+        }
+
+    }
     public void MarcarObjetosColetado(Vector2 posicao)
     {
         string chave = $"item_{posicao.x}_{posicao.y}";

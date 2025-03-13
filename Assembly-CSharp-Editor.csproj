@@ -397,6 +397,10 @@
       <HintPath>D:\unity\2021.3.38f1\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEditor.WebGL.Extensions">
+      <HintPath>D:\unity\2021.3.38f1\Editor\Data\PlaybackEngines\WebGLSupport\UnityEditor.WebGL.Extensions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEditor.Android.Extensions">
       <HintPath>D:\unity\2021.3.38f1\Editor\Data\PlaybackEngines\AndroidPlayer\UnityEditor.Android.Extensions.dll</HintPath>
       <Private>False</Private>

@@ -26,7 +26,6 @@ public class Inventory : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject);
             giveItemBtn.onClick.AddListener(delegate { PanelCraft(); });
         }
         else

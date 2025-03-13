@@ -16,7 +16,15 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if(GameManager.Instance.vida == null)
+        {
+            GameManager.Instance.vida = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if(GameManager.Instance.vida != this)
+        {
+            Destroy(gameObject);
+        }
     }
     void Start()
     {
@@ -31,6 +39,7 @@ public class Player : MonoBehaviour
         healt.maxValue = entity.maxHealt;
         healt.value = entity.maxHealt;
         StartDiminuirVida();
+        healt.onValueChanged.Invoke(healt.value);
         backToMenu.onClick.AddListener(BackToMenu);
         novoJogo.onClick.AddListener(newGame);
     }

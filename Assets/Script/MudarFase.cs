@@ -9,23 +9,43 @@ public class MudarFase : MonoBehaviour
     private Movimentacao player;
     Player vida;
     public GameObject IrFase;
- 
+    private string nomeCena = "";
+
     void Start()
     {
+        Debug.Log($"vida: {vida}, IrFase: {IrFase}");
         IrFase.SetActive(false);
         IrFase.SetActive(true);
-        player = FindAnyObjectByType<Movimentacao>();
-        vida = FindAnyObjectByType<Player>();
-        StartCoroutine(FecharJogo());
+        player = GameObject.FindWithTag("Player").GetComponent<Movimentacao>();
+        vida = GameObject.FindWithTag("Player").GetComponent<Player>();
+    }
+
+    private void Update()
+    {
+        Collider2D colisor = GetComponent<Collider2D>();
+        if(colisor == null)
+        {
+            Debug.LogError("Colisor sumiu");
+        }
+        else if(!colisor.enabled)
+        {
+            Debug.LogError("Colisor desativado");
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Player") || vida == null || IrFase == null) return;
+        Debug.Log($"Colisão detectada com: {collision.gameObject.name}");
 
-        string nomeCena = "";
+        if (!collision.CompareTag("Player") || vida == null || IrFase == null)
+        {
+            Debug.LogError("Colisão falhou! Player não detectado ou referências nulas.");
+            return;
+        }
 
-        switch(IrFase.tag)
+        Debug.Log("Player detectado! Verificando a tag de mudança de fase...");
+
+        switch (IrFase.tag)
         {
             case "B1":
                 nomeCena = "B1";
@@ -44,8 +64,11 @@ public class MudarFase : MonoBehaviour
                 return;
         }
 
+
+        Debug.Log($"Mudando para a cena: {nomeCena}");
         vida.SalvarVida();
         StartCoroutine(TrocarCena(nomeCena));
+        StartCoroutine(FecharJogo());
     }
 
     private IEnumerator TrocarCena(string cena)

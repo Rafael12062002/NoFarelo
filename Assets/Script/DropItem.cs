@@ -11,7 +11,7 @@ public class DropItem : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log($"DropItem inicializado no objeto: {gameObject.name}");
+        //Debug.Log($"DropItem inicializado no objeto: {gameObject.name}");
     }
 
     public void Drop()
